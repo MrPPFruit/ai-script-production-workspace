@@ -81,6 +81,14 @@ test("关闭 thinking 并接受完整的 JSON 响应", async () => {
   assert.deepEqual(response.body.suggestions[0].evidence[0].range, { start: 6, end: 8 });
 });
 
+test("逐条丢弃无有效证据的建议，不让单条坏数据拖垮整批", async () => {
+  const invalidSuggestion = { ...validSuggestion, label: "不存在的灯", evidence: [{ quote: "蓝灯", kind: "explicit" }] };
+  const response = await withUpstream(async () => Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ suggestions: [invalidSuggestion, validSuggestion] }) } }] }), () => invoke(request));
+  assert.equal(response.body.mode, "deepseek");
+  assert.equal(response.body.suggestions.length, 1);
+  assert.equal(response.body.suggestions[0].label, "红灯");
+});
+
 test("截断响应不会被当作模型成功", async () => {
   const response = await withUpstream(async () => Response.json({ choices: [{ finish_reason: "length", message: { content: JSON.stringify({ suggestions: [validSuggestion] }) } }] }), () => invoke(request));
   assert.equal(response.body.mode, "fallback");
