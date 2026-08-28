@@ -1,35 +1,28 @@
-# 《暴风雨》默认样本：来源与许可说明
+# 《雷雨》默认样本：来源与使用边界
 
 ## 固定来源
 
-- 作品：*The Tempest*，William Shakespeare。
-- 主来源：[MIT Shakespeare — The Tempest](https://shakespeare.mit.edu/tempest/)。逐场页面：[Act I, Scene 1](https://shakespeare.mit.edu/tempest/tempest.1.1.html)、[Act I, Scene 2](https://shakespeare.mit.edu/tempest/tempest.1.2.html)、[Act III, Scene 3](https://shakespeare.mit.edu/tempest/tempest.3.3.html)。
-- 主来源许可依据：[MIT Shakespeare 首页](https://shakespeare.mit.edu/)明确说明其提供的 HTML versions are placed in the public domain。
-- 辅助核对：[Project Gutenberg eBook #23042](https://www.gutenberg.org/ebooks/23042)，*The Works of William Shakespeare, Cambridge Edition, Volume I*（1863）。该页面标记 Public domain in the USA，并提供 Plain Text。
+- 作品：《雷雨》，曹禺。
+- 本次导入名称：《雷雨》·面试 Demo 导入版本（第四幕）。
+- 实际文本来源：[新浪博客转载页“雷雨·第四幕4（曹禺）”](https://blog.sina.com.cn/s/blog_62d460750100vgi3.html)。
 - 提取日期：2026-08-28。
+- 提取范围：从“鲁四凤（失声）太太！”起，至舞台渐暗、序幕音乐响起并接尾声止。
+- 文本处理：去除网页导航、转载说明和页尾；把网页中的不换行空格规范为普通空格。未自行续写剧情。
 
-## 有界提取范围
+该网页是第三方转载，不是出版社、作者遗产管理方或权利人的授权数字版本。其标题和正文能够为本次片段提供位置线索，但不证明文本校勘权威性或开放许可。
 
-| Fixture 场次 | 原作位置 | MIT 页面内边界 | 选择目的 |
-| --- | --- | --- | --- |
-| 样本 1 | Act I, Scene 1 | 从场次标题与“a tempestuous noise”舞台指示起，至 Boatswain 首次命令水手照看主帆止 | 船只、船员、雷电、风浪、口令和哨声 |
-| 样本 2 | Act I, Scene 2 | 从“MIRANDA sleeps”起，至 Ariel 描述火焰、雷霆令海神三叉戟震动止 | Prospero/Ariel 重复角色、国王船只跨场复用、魔法服化及声光/VFX |
-| 样本 3 | Act III, Scene 3 | 从 Alonso 决定就席起，至 Ariel 在雷声中消失、异形表演者随柔和音乐搬走桌子止 | 宴席、桌子、剑、鹰身女妖造型、雷电、音乐与宴席消失 |
+## 内容范围
 
-没有复制完整场次或整部作品。省略的对白不以摘要伪装成原文；V1 只展示上述连续片段。
+fixture 保存的是来源页“第四幕4”的**终局连续片段全文**，不是《雷雨》整部作品，也不是第四幕全文。UI 必须使用“《雷雨》·面试 Demo 导入版本（第四幕）”并在来源处说明片段范围，不能写成“完整《雷雨》”或“第四幕全文”。
 
-## 中文翻译声明
+V1 与 V2 的 `fullText` 完全相同。V1 分为 3 个处理单元；V2 只在“书房枪声”前把最后一个处理单元拆为 3A/3B。“处理单元”不是曹禺原作场次。
 
-`default-script-v1.md` 和 `default-script.txt` 中的简体中文由本项目在 2026-08-28 依据上述英文公版片段自行翻译，仅用于公开 Demo。翻译没有取用、改写或拼接任何网络中文译本，也不声称是学术版或权威出版译本。
+## 使用边界
 
-自行翻译部分可随本 Demo 一并使用和修改；若未来换用第三方中文译本，必须重新核验译者、版本和授权，不能沿用本文件的许可结论。
+- 用户已明确本项目只用于一次私下 AI 产品经理面试 Demo，不商业化、不主动传播，并接受本次文本使用风险。
+- 本工作树只创建本地 commit，不推送 GitHub。
+- 若代码仓库将来公开，应移除正文 fixture，改由私有部署数据或面试现场本地导入加载。
+- 不得把此转载页的可访问性解释为公版、Creative Commons 或权利人授权。
+- 如要商业化、持续部署或公开分发，应换成权利人授权文本并重新固定版本来源。
 
-## V2 声明
-
-`default-script-v2.md` 是项目为展示版本影响而写的**演示性制作修订**：它基于上述公版情节和舞台指示，把 Act III, Scene 3 拆为两个制作场次，并引入“实物桌 + 实时合成宴席影像”的方案。新增中文动作、技术方案和场次切分不是 Shakespeare 原文，也不是 MIT 或 Project Gutenberg 的版本。
-
-## 公开部署边界
-
-- 仓库只保存必要的英文公版摘录、本项目自译中文和明确标注的演示性修订。
-- 不复制 Project Gutenberg 的封面、商标、站点说明、完整电子书或第三方中文译本。
-- Project Gutenberg 的版权结论明确针对美国；面向其他司法辖区部署时仍需由发布方核验当地规则。本文件记录来源与决策证据，不构成法律意见。
+本说明记录工程使用边界，不构成法律意见。
