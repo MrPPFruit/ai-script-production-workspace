@@ -21,6 +21,22 @@ test("TXT 导入样本与雷雨 V1 全文、处理单元和证据范围一致", 
   assert.equal(v2.scenes.length, 4);
   assert.equal(v2.fullText, v1.fullText, "V2 只允许改变处理单元边界");
 
+  const relationSuggestionIds = ["s-v1-u1-relation", "s-v1-u2-family", "s-v2-u1-relation"];
+  const relationEntityIds = ["entity-ping-sifeng-relationship", "entity-family-reveal"];
+  const suggestionsById = new Map(fixture.suggestions.map((suggestion) => [suggestion.id, suggestion]));
+  const entitiesById = new Map(fixture.entities.map((entity) => [entity.id, entity]));
+
+  assert.equal(fixture.suggestions.some((suggestion) => suggestion.taxonomy === "other"), false);
+  assert.equal(fixture.entities.some((entity) => entity.taxonomy === "other"), false);
+  for (const id of relationSuggestionIds) {
+    assert.equal(suggestionsById.get(id)?.taxonomy, "cast", `${id} 应归入人物/选角关系`);
+    assert.equal("taxonomyNote" in suggestionsById.get(id), false, `${id} 不应残留旧关系扩展类型`);
+  }
+  for (const id of relationEntityIds) {
+    assert.equal(entitiesById.get(id)?.taxonomy, "cast", `${id} 应归入人物/选角关系`);
+    assert.equal("taxonomyNote" in entitiesById.get(id), false, `${id} 不应残留旧关系扩展类型`);
+  }
+
   const sceneById = new Map();
   for (const version of fixture.versions) {
     const ordered = [...version.scenes].sort((a, b) => a.ordinal - b.ordinal);

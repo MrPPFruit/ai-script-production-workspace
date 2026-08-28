@@ -913,8 +913,7 @@
       "sceneId": "v1-u1",
       "analysisUnitId": "v1-u1",
       "sourceSection": "第四幕",
-      "taxonomy": "other",
-      "taxonomyNote": "character_relationship",
+      "taxonomy": "cast",
       "label": "周萍与鲁四凤准备共同离开",
       "description": "角色关系事实；不等于系统自动推断完整亲属图。",
       "evidenceIds": [
@@ -1035,8 +1034,7 @@
       "sceneId": "v1-u2",
       "analysisUnitId": "v1-u2",
       "sourceSection": "第四幕",
-      "taxonomy": "other",
-      "taxonomyNote": "character_relationship",
+      "taxonomy": "cast",
       "label": "周萍与鲁侍萍的母子关系揭示",
       "evidenceIds": [
         "ev-v1-u2-family"
@@ -1242,8 +1240,7 @@
       "sceneId": "v2-u1",
       "analysisUnitId": "v2-u1",
       "sourceSection": "第四幕",
-      "taxonomy": "other",
-      "taxonomyNote": "character_relationship",
+      "taxonomy": "cast",
       "label": "周萍与鲁四凤准备共同离开",
       "evidenceIds": [
         "ev-v2-u1-relation"
@@ -1495,8 +1492,7 @@
     {
       "id": "entity-ping-sifeng-relationship",
       "projectId": "project-raindrama-demo",
-      "taxonomy": "other",
-      "taxonomyNote": "character_relationship",
+      "taxonomy": "cast",
       "canonicalName": "周萍—鲁四凤关系",
       "aliases": [
         "共同离开计划"
@@ -1517,8 +1513,7 @@
     {
       "id": "entity-family-reveal",
       "projectId": "project-raindrama-demo",
-      "taxonomy": "other",
-      "taxonomyNote": "character_relationship",
+      "taxonomy": "cast",
       "canonicalName": "周萍—鲁侍萍母子关系",
       "aliases": [
         "身世揭示"
