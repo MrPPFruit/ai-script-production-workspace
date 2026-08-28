@@ -192,8 +192,9 @@ fallback 是确定性演示保障，只证明审阅链在上游不可用时仍�
 
 | 项目 | 链接 | 当前状态 |
 | --- | --- | --- |
-| Cloudflare 备用 Demo | `https://ai-script-production-demo-ppfruit.mrppfruit-portfolio.workers.dev` | 已公开发布；首页、完整手册与同源 AI API 均已完成在线烟测。中国大陆无 VPN 可达性仍需目标设备实测 |
-| Sites 镜像 | `https://ai-script-production-workspace.ppfruit.chatgpt.site` | 已公开发布；部分网络/IP 会在应用到达前触发边缘拦截，不作为唯一面试入口 |
+| 正式 Demo | `https://script-demo.ppserver.xyz` | Cloudflare Worker 自定义域；首页、完整手册、HTTPS 与同源 AI API 已完成在线烟测。中国大陆无 VPN 可达性仍需目标设备实测 |
+| Cloudflare 备用入口 | `https://ai-script-production-demo-ppfruit.mrppfruit-portfolio.workers.dev` | 与正式域指向同一 Worker，当前保留并已复核 200 |
+| Sites 旧镜像 | `https://ai-script-production-workspace.ppfruit.chatgpt.site` | 部分网络/IP 会在应用到达前触发平台边缘拦截，不再作为交付入口 |
 | GitHub | `https://github.com/MrPPFruit/ai-script-production-workspace` | 公开仓库；当前交付代码已推送 |
 | 本地运行 | `http://127.0.0.1:5173/` | 当前本地演示入口 |
 
