@@ -32,8 +32,8 @@ function normalize(payload, body) {
       return start < 0 ? null : { quote: source.quote, kind: source.kind, range: { start, end: start + source.quote.length }, ...(item.evidenceKind === "inferred" ? { rationale: item.rationale } : {}) };
     });
     return evidence.some((source) => !source) ? null : { taxonomy: item.taxonomy, ...(item.taxonomyNote ? { taxonomyNote: item.taxonomyNote } : {}), label: item.label, ...(item.description ? { description: item.description } : {}), evidenceKind: item.evidenceKind, confidence: item.confidence, ...(item.proposedEntityId ? { proposedEntityId: item.proposedEntityId } : {}), evidence };
-  }).filter(Boolean);
-  return suggestions.length ? suggestions : null;
+  });
+  return suggestions.some((item) => !item) ? null : suggestions;
 }
 
 function prompt(body) {
