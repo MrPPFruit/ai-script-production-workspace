@@ -216,7 +216,7 @@ fallback 是确定性演示保障，只证明审阅链在上游不可用时仍�
 | Cloudflare 备用入口 | `https://ai-script-production-demo-ppfruit.mrppfruit-portfolio.workers.dev` | 与正式域指向同一 Worker，当前保留并已复核 200 |
 | Sites 旧镜像 | `https://ai-script-production-workspace.ppfruit.chatgpt.site` | 部分网络/IP 会在应用到达前触发平台边缘拦截，不再作为交付入口 |
 | GitHub | `https://github.com/MrPPFruit/ai-script-production-workspace` | 公开仓库；当前交付代码已推送 |
-| 本地运行 | `http://127.0.0.1:5173/` | 当前本地演示入口 |
+| 包内本地 Demo | `http://127.0.0.1:8080/` | 解压交付包后双击 `启动本地网页.command`；静态交互版不包含服务端 AI Secret |
 
 ## 12. 最终交付清单
 
