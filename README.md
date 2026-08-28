@@ -2,8 +2,9 @@
 
 面向制片、制作统筹与部门主管的 AI 剧本拆解 Demo。系统围绕《雷雨》第四幕演示“完整文本 → 处理单元 → DeepSeek 结构化建议 → 人工审阅 → 生产实体 → 未下发任务材料”的可追溯链路。
 
-- 在线 Demo：<https://ai-script-production-workspace.ppfruit.chatgpt.site>
-- 网页产品手册：<https://ai-script-production-workspace.ppfruit.chatgpt.site/product-guide>
+- 在线 Demo（Cloudflare 备用入口）：<https://ai-script-production-demo-ppfruit.mrppfruit-portfolio.workers.dev>
+- 网页产品手册（完整 Markdown 版）：<https://ai-script-production-demo-ppfruit.mrppfruit-portfolio.workers.dev/product-guide>
+- Sites 镜像：<https://ai-script-production-workspace.ppfruit.chatgpt.site>（部分网络可能触发边缘拦截）
 - 完整 Markdown 手册：[docs/product/INTERVIEW_PRODUCT_GUIDE.md](docs/product/INTERVIEW_PRODUCT_GUIDE.md)
 
 ## 当前可演示能力
