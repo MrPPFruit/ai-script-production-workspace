@@ -22,11 +22,12 @@
         <section class="section wide"><h2>版本化编辑规划</h2><p>当前阅读区不直接修改正文。未来保存编辑会创建新版本、记录修改，并要求重新分析受影响单元；证据 offset、实体来源与任务快照会随版本保持可追溯。当前 Demo 尚未开放该能力。</p></section>
         <section class="section"><h2>已实现</h2><p>本地 TXT/粘贴导入、完整文本阅读、证据跳转、逐单元顺序请求与可见模式、建议人工处理、实体、可编辑未下发任务草稿、V2 关系审阅与类型筛选。</p></section>
         <section class="section"><h2>未实现</h2><p>真实任务派发/撤回、反向剧本修改提案、通用版本 diff/继承、数据库持久化、上传解析与完整协作权限模型均不在本次 Demo 范围。</p></section>
+        <section class="section wide"><h2>当前已知缺陷</h2><p>线上已接入真实 DeepSeek 请求，但模型输出仍可能未通过结构与逐字证据校验。此时工作台会明确显示 fallback 及 <code>INVALID_MODEL_OUTPUT</code>，继续使用同一处理单元的预置审阅数据完成产品链路；本 Demo 不隐藏该问题，也不把 fallback 说成模型成功。</p></section>
         <section class="section"><h2>演示步骤</h2><ol><li>从左侧选择处理单元，查看中间原文。</li><li>在右侧按中文类型筛选建议并点来源证据。</li><li>编辑或采用一条建议，再到“实体与任务”生成材料。</li><li>在底部调整任务部门或材料审阅状态；它始终显示为未下发。</li></ol></section>
         <section class="section"><h2>安全与数据边界</h2><p>导入文本先在当前浏览器处理；只有点击分析才向同源 AI 接口提交当前处理单元。Demo 不读取或展示密钥，不执行真实部门下发，也不把 fallback 伪装为模型结果。</p></section>
         <section class="section wide"><h2>路线图</h2><p>下一步聚焦版本化编辑与影响审阅、可配置部门模板、真实的任务派发与撤回、持久化审计记录，以及基于团队权限的协作流程。</p></section>
       </div>
-      <p class="placeholder">公开演示链接：待最终主会话替换。</p>
+      <p class="placeholder">公开演示：<a href="https://ai-script-production-workspace.ppfruit.chatgpt.site">ai-script-production-workspace.ppfruit.chatgpt.site</a> · <a href="https://github.com/MrPPFruit/ai-script-production-workspace">GitHub 源码与 Markdown 手册</a></p>
     </main>
   </body>
 </html>
