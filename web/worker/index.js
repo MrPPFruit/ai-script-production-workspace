@@ -1,4 +1,4 @@
-import { handleBreakdown } from "../api/ai/breakdown-core.js";
+import { handleBreakdown } from "./breakdown-core.js";
 
 const breakdownPath = "/api/ai/breakdown";
 const json = (result) => new Response(JSON.stringify(result.body), { status: result.status, headers: { "content-type": "application/json; charset=utf-8" } });
