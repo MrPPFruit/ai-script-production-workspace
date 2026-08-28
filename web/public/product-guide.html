@@ -249,6 +249,50 @@ entityId，并补充来源关系，避免重复建档。</li>
 <h2 id="5-实体与任务材料为什么分层">5. 实体与任务材料为什么分层</h2>
 <p>实体是跨版本、跨处理单元可复用的生产对象；任务材料是某一版本和来源上下文下给部门准备的草稿。一个实体可以有多条
 evidence，也可以生成多份部门材料，不能把每个文本片段直接变成实体。</p>
+<p>这里的状态边界不是“AI 未确认 / AI 已确认”，而是：<strong>AI 候选建议
+→ 人工采用或关联后的稳定实体 →
+从实体派生的部门任务材料草稿</strong>。右侧实体区按生产分类筛选，底部任务台账按负责部门筛选，两处筛选都只改变当前视图，不改写数据。</p>
+<table>
+<thead>
+<tr>
+<th>实体字段</th>
+<th>是否可改</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实体名称</td>
+<td>可改</td>
+<td>人工需要统一生产口径与别名后的主名称</td>
+</tr>
+<tr>
+<td>生产分类</td>
+<td>可改</td>
+<td>AI 分类只是候选，制片可调整归类</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>可改</td>
+<td>需要补充生产规格、限制与连续性说明</td>
+</tr>
+<tr>
+<td>entityId</td>
+<td>不可改</td>
+<td>稳定标识被来源关系和任务引用</td>
+</tr>
+<tr>
+<td>来源关系</td>
+<td>不可直接改</td>
+<td>应回到关系复核动作，避免证据链失真</td>
+</tr>
+<tr>
+<td>版本快照</td>
+<td>不可改</td>
+<td>防止历史判断被静默挂到其他版本</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -321,7 +365,9 @@ orchestrator，以及结构/evidence 校验合同。</li>
 <li>逐单元等待、请求、DeepSeek 待审、fallback
 待审、失败和取消后续请求状态。</li>
 <li>建议编辑、采用新实体、关联既有实体、忽略。</li>
-<li>稳定实体、来源关系、未下发任务材料和可编辑任务字段。</li>
+<li>稳定实体、按生产分类筛选、实体名称/分类/Metadata
+编辑，以及锁定的来源关系。</li>
+<li>按部门筛选的未下发任务材料，以及可编辑的标题、要求、部门、优先级和材料状态。</li>
 <li>V1 → V2 一次处理单元切分影响及人工关系复核。</li>
 <li>默认 fixture 已移除 <code>other</code>，人物关系数据已改用
 <code>cast</code>，并已与类型筛选 UI 集成验收。</li>
@@ -550,6 +596,11 @@ taxonomy、evidence、字段长度和候选实体执行校验；不合格输出�
 <li><label><input type="checkbox" checked="" />类型筛选与
 <code>cast</code>/<code>other</code>
 中文映射通过最终集成浏览器验收</label></li>
+<li><label><input type="checkbox"
+checked="" />实体按生产分类筛选并可编辑名称、分类与
+Metadata；来源关系与标识锁定</label></li>
+<li><label><input type="checkbox"
+checked="" />任务按中文部门筛选，任务可编辑边界与来源/版本锁定状态可见</label></li>
 <li><label><input type="checkbox"
 checked="" />官网静态产品手册页可访问，且不把未完成项显示为已完成</label></li>
 <li><label><input type="checkbox" />服务端配置 DeepSeek，完成 3/4
