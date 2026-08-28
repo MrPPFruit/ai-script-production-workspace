@@ -1,0 +1,1103 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "fixtureRole": "public-demo-default",
+    "contentProfile": "demo",
+    "work": {
+      "title": "The Tempest",
+      "author": "William Shakespeare",
+      "primarySource": "https://shakespeare.mit.edu/tempest/",
+      "primarySourceRightsStatement": "MIT Shakespeare states its HTML versions are placed in the public domain.",
+      "verificationSource": "https://www.gutenberg.org/ebooks/23042",
+      "verificationEdition": "Cambridge Edition, 1863; Project Gutenberg eBook #23042",
+      "extractedAt": "2026-08-28"
+    },
+    "translation": {
+      "language": "zh-CN",
+      "mode": "project-self-translation",
+      "purpose": "demo",
+      "thirdPartyChineseTranslationUsed": false
+    },
+    "versionAuthority": {
+      "version-v1": "public-domain English excerpts plus project self-translation",
+      "version-v2": "demo production adaptation; not Shakespeare text"
+    },
+    "taxonomyProfile": {
+      "id": "production-demo-v1",
+      "status": "demo-profile-not-closed-schema",
+      "values": [
+        "character",
+        "cast",
+        "location",
+        "set",
+        "prop",
+        "costume",
+        "makeup_hair",
+        "vehicle",
+        "animal",
+        "vfx",
+        "sfx",
+        "stunt",
+        "sound",
+        "wardrobe",
+        "art",
+        "camera",
+        "lighting",
+        "other"
+      ],
+      "extensionPolicy": "Use the shared production taxonomy; other requires taxonomyNote. Do not encode a fixed recording requirement in script content."
+    },
+    "digestBasis": {
+      "version-v1": "fixtures/default-script.txt UTF-8 bytes",
+      "version-v2": "fixtures/default-script-v2.md UTF-8 bytes"
+    }
+  },
+  "projectId": "project-the-tempest-demo",
+  "versions": [
+    {
+      "id": "version-v1",
+      "projectId": "project-the-tempest-demo",
+      "label": "V1 · public-domain excerpt + project translation",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "sourceDigest": "9b07d2428799f4a1f31339338c083ff7f692bd73e91a0280a868ef5d923fe2f3",
+      "scenes": [
+        {
+          "id": "version-v1-01",
+          "versionId": "version-v1",
+          "ordinal": 1,
+          "heading": "1. ACT I, SCENE I — 海上船只",
+          "text": "海上的一艘船：传来暴风雨中的雷鸣与闪电声。\n\n船长与水手长上。\n\n船长：水手长！\n\n水手长：在，船长！情况如何？\n\n船长：快去叫水手们动起来，不然船就要搁浅了。快，快！\n\n船长下。众水手上。\n\n水手长：振作点，伙计们！快，快！收起主帆！听船长的哨声。风啊，只要还有海面让我们转向，你就尽管吹到炸裂吧！",
+          "sourceRange": {
+            "start": 0,
+            "end": 176
+          }
+        },
+        {
+          "id": "version-v1-02",
+          "versionId": "version-v1",
+          "ordinal": 2,
+          "heading": "2. ACT I, SCENE II — 普洛斯彼罗居所前",
+          "text": "米兰达睡去。\n\n普洛斯彼罗：出来吧，仆人，出来。我已经准备好了。靠近些，我的爱丽儿，来吧。\n\n爱丽儿上。\n\n爱丽儿：向伟大的主人致敬！尊贵的先生，向您致敬！我来听候您的一切吩咐：无论飞翔、游水、潜入火中，还是乘着卷曲的云朵，只要您一声令下，爱丽儿和他的同伴都愿效劳。\n\n普洛斯彼罗：精灵，我命你制造的暴风雨，可曾丝毫不差地完成？\n\n爱丽儿：每一项都完成了。我登上国王的船，一会儿在船首，一会儿在船腰、甲板和每一间船舱燃起令人惊骇的火焰。我有时分散，在多处燃烧；在主桅、横桁和斜桅上各自腾起，再汇成一体。哪怕朱庇特的闪电——那可怕雷霆的先声——也没有这般转瞬即逝、快过视线。火焰与硫磺般的轰鸣仿佛围攻强大的海神，使他的巨浪战栗，连可怖的三叉戟也为之震动。",
+          "sourceRange": {
+            "start": 178,
+            "end": 535
+          }
+        },
+        {
+          "id": "version-v1-03",
+          "versionId": "version-v1",
+          "ordinal": 3,
+          "heading": "3. ACT III, SCENE III — 岛上宴席",
+          "text": "阿隆索：我就上前进食吧，即便这是最后一餐也无妨，因为我觉得最好的时光已经过去。弟弟，还有公爵大人，都上前来，和我们一起吧。\n\n雷电交作。爱丽儿化作鹰身女妖上场；他用翅膀拍击桌面，借一套巧妙机关使宴席消失。\n\n爱丽儿：你们三个罪人，命运借永不餍足的大海支配尘世万物，又让海把你们吐上这座无人居住的岛。你们在人类之中，最不配活着。我已经使你们发狂；人正会凭着这种疯狂的勇气，把自己吊死或溺死。\n\n阿隆索、塞巴斯蒂安等人拔剑。\n\n爱丽儿：蠢人！我和同伴都是命运的使者。铸成你们宝剑的元素，若想伤我一根羽毛，就如同想刺伤呼啸的风，或用受嘲弄的剑击杀不断合拢的水一样徒劳；我的同伴也同样刀枪不入。\n\n他在雷声中消失；随后柔和的音乐响起，异形表演者再次上场，一边嘲弄地舞蹈，一边把桌子搬走。",
+          "sourceRange": {
+            "start": 537,
+            "end": 906
+          }
+        }
+      ]
+    },
+    {
+      "id": "version-v2",
+      "projectId": "project-the-tempest-demo",
+      "label": "V2 · DEMO PRODUCTION ADAPTATION (not Shakespeare text)",
+      "parentVersionId": "version-v1",
+      "createdAt": "2026-08-28T00:05:00.000Z",
+      "sourceDigest": "064325c472408248183843f59e67cf350363eed0d98e305f5b115ebb1741d089",
+      "scenes": [
+        {
+          "id": "version-v2-01",
+          "versionId": "version-v2",
+          "ordinal": 1,
+          "heading": "1. ACT I, SCENE I — 海上船只",
+          "text": "【原作保留／本项目自译】海上的一艘船：传来暴风雨中的雷鸣与闪电声。船长与水手长上。\n\n船长：水手长！\n\n水手长：在，船长！情况如何？\n\n船长：快去叫水手们动起来，不然船就要搁浅了。快，快！\n\n船长下。众水手上。\n\n水手长：振作点，伙计们！快，快！收起主帆！听船长的哨声。",
+          "sourceRange": {
+            "start": 0,
+            "end": 161
+          }
+        },
+        {
+          "id": "version-v2-02",
+          "versionId": "version-v2",
+          "ordinal": 2,
+          "heading": "2. ACT I, SCENE II — 普洛斯彼罗居所前",
+          "text": "【原作保留／本项目自译】米兰达睡去。普洛斯彼罗召来爱丽儿。\n\n爱丽儿：我登上国王的船，在船首、甲板和船舱燃起火焰；主桅、横桁和斜桅上的火焰先分开，再汇成一体。火焰与轰鸣使巨浪战栗。\n\n【演示性制作注】爱丽儿延续海精灵造型；国王的船仍关联样本 1，不新建重复载具实体。",
+          "sourceRange": {
+            "start": 163,
+            "end": 327
+          }
+        },
+        {
+          "id": "version-v2-03a",
+          "versionId": "version-v2",
+          "ordinal": 3,
+          "heading": "3. ACT III, SCENE III-A — 岛上宴席出现（Demo 拆分）",
+          "text": "【基于原作的演示性编辑】庄严而奇异的音乐响起。异形表演者推入一张实物宴席桌；食物与器皿改为贴合桌面的实时合成影像。隐身的普洛斯彼罗在上方观察。\n\n阿隆索：我就上前进食吧，即便这是最后一餐也无妨。\n\n【演示性制作注】实物宴席桌保留为道具／置景实体；“宴席食物与器皿”由实物道具改为实时合成内容。",
+          "sourceRange": {
+            "start": 329,
+            "end": 518
+          }
+        },
+        {
+          "id": "version-v2-03b",
+          "versionId": "version-v2",
+          "ordinal": 4,
+          "heading": "4. ACT III, SCENE III-B — 鹰身女妖揭示（Demo 拆分）",
+          "text": "【基于原作的演示性编辑】雷电交作。爱丽儿化作鹰身女妖上场，用翅膀拍击桌面；实时合成的宴席影像随即消失，实物桌留在现场。\n\n爱丽儿：你们三个罪人，命运让大海把你们吐上这座岛。我已经使你们发狂。\n\n阿隆索、塞巴斯蒂安等人拔剑。\n\n爱丽儿在雷声中消失。柔和的音乐响起，异形表演者再次上场，把实物桌搬走。\n\n【演示性制作注】V1 的 ACT III, SCENE III 被拆为样本 3 与样本 4；爱丽儿、宴席桌、声音和灯光实体需追加新场次关联，原任务材料不自动改写。",
+          "sourceRange": {
+            "start": 520,
+            "end": 794
+          }
+        }
+      ]
+    }
+  ],
+  "sceneMetadata": {
+    "version-v1-01": {
+      "sampleNumber": 1,
+      "sourceAct": "ACT I",
+      "sourceScene": "SCENE I",
+      "sourceLocator": "Act I, Scene 1 opening through Boatswain first mariner command",
+      "sourceUrl": "https://shakespeare.mit.edu/tempest/tempest.1.1.html",
+      "language": "zh-CN",
+      "translationMode": "project-self-translation"
+    },
+    "version-v1-02": {
+      "sampleNumber": 2,
+      "sourceAct": "ACT I",
+      "sourceScene": "SCENE II",
+      "sourceLocator": "Act I, Scene 2 MIRANDA sleeps through ARIEL tempest report",
+      "sourceUrl": "https://shakespeare.mit.edu/tempest/tempest.1.2.html",
+      "language": "zh-CN",
+      "translationMode": "project-self-translation"
+    },
+    "version-v1-03": {
+      "sampleNumber": 3,
+      "sourceAct": "ACT III",
+      "sourceScene": "SCENE III",
+      "sourceLocator": "Act III, Scene 3 ALONSO approaches banquet through Shapes carry out table",
+      "sourceUrl": "https://shakespeare.mit.edu/tempest/tempest.3.3.html",
+      "language": "zh-CN",
+      "translationMode": "project-self-translation"
+    },
+    "version-v2-01": {
+      "sampleNumber": 1,
+      "sourceAct": "ACT I",
+      "sourceScene": "SCENE I",
+      "authority": "demo-production-adaptation"
+    },
+    "version-v2-02": {
+      "sampleNumber": 2,
+      "sourceAct": "ACT I",
+      "sourceScene": "SCENE II",
+      "authority": "demo-production-adaptation"
+    },
+    "version-v2-03a": {
+      "sampleNumber": 3,
+      "sourceAct": "ACT III",
+      "sourceScene": "SCENE III",
+      "demoSplitPart": "A",
+      "authority": "demo-production-adaptation",
+      "derivedFromSceneId": "version-v1-03"
+    },
+    "version-v2-03b": {
+      "sampleNumber": 4,
+      "sourceAct": "ACT III",
+      "sourceScene": "SCENE III",
+      "demoSplitPart": "B",
+      "authority": "demo-production-adaptation",
+      "derivedFromSceneId": "version-v1-03"
+    }
+  },
+  "sourceEvidence": [
+    {
+      "id": "e-v1-s1-ship",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "quote": "海上的一艘船",
+      "range": {
+        "start": 0,
+        "end": 6
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-boatswain",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "quote": "水手长：在，船长！情况如何？",
+      "range": {
+        "start": 42,
+        "end": 56
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-storm",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "quote": "传来暴风雨中的雷鸣与闪电声",
+      "range": {
+        "start": 7,
+        "end": 20
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-whistle",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "quote": "听船长的哨声",
+      "range": {
+        "start": 118,
+        "end": 124
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s2-prospero",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "quote": "普洛斯彼罗：出来吧，仆人，出来",
+      "range": {
+        "start": 8,
+        "end": 23
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s2-ariel",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "quote": "爱丽儿：向伟大的主人致敬",
+      "range": {
+        "start": 54,
+        "end": 66
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s2-ship",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "quote": "我登上国王的船",
+      "range": {
+        "start": 178,
+        "end": 185
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s2-flame",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "quote": "在主桅、横桁和斜桅上各自腾起，再汇成一体",
+      "range": {
+        "start": 230,
+        "end": 250
+      },
+      "kind": "inferred",
+      "rationale": "原文明确火焰在多处出现后汇合；具体采用实拍、灯光或合成需由制作部门确认。"
+    },
+    {
+      "id": "e-v1-s3-alonso",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "阿隆索：我就上前进食吧",
+      "range": {
+        "start": 0,
+        "end": 11
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s3-ariel",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "爱丽儿化作鹰身女妖上场",
+      "range": {
+        "start": 68,
+        "end": 79
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s3-harpy",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "爱丽儿化作鹰身女妖上场",
+      "range": {
+        "start": 68,
+        "end": 79
+      },
+      "kind": "inferred",
+      "rationale": "原文明确角色形态；服装、妆发、表演装置或视觉合成的实现仍需人工拆分。"
+    },
+    {
+      "id": "e-v1-s3-banquet",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "用翅膀拍击桌面，借一套巧妙机关使宴席消失",
+      "range": {
+        "start": 81,
+        "end": 101
+      },
+      "kind": "inferred",
+      "rationale": "原文明确桌面动作和宴席消失；需要确认实物桌、食物陈设与消失机关的制作边界。"
+    },
+    {
+      "id": "e-v1-s3-swords",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "阿隆索、塞巴斯蒂安等人拔剑",
+      "range": {
+        "start": 196,
+        "end": 209
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s3-cue",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "quote": "他在雷声中消失；随后柔和的音乐响起",
+      "range": {
+        "start": 295,
+        "end": 312
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s3a-banquet-image",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03a",
+      "quote": "食物与器皿改为贴合桌面的实时合成影像",
+      "range": {
+        "start": 38,
+        "end": 56
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s3b-ariel",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "quote": "爱丽儿化作鹰身女妖上场",
+      "range": {
+        "start": 17,
+        "end": 28
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s3b-table",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "quote": "实物桌留在现场",
+      "range": {
+        "start": 51,
+        "end": 58
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s3b-cue",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "quote": "爱丽儿在雷声中消失。柔和的音乐响起",
+      "range": {
+        "start": 113,
+        "end": 130
+      },
+      "kind": "explicit"
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "v1-s1-ship",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "taxonomy": "vehicle",
+      "label": "国王的船",
+      "evidenceIds": [
+        "e-v1-s1-ship"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-boatswain",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "taxonomy": "character",
+      "label": "水手长",
+      "evidenceIds": [
+        "e-v1-s1-boatswain"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-storm",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "taxonomy": "sfx",
+      "label": "风暴与雷电效果",
+      "evidenceIds": [
+        "e-v1-s1-storm"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-whistle",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-01",
+      "taxonomy": "sound",
+      "label": "船长哨声",
+      "evidenceIds": [
+        "e-v1-s1-whistle"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s2-prospero",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "taxonomy": "character",
+      "label": "普洛斯彼罗",
+      "evidenceIds": [
+        "e-v1-s2-prospero"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s2-ariel",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "taxonomy": "character",
+      "label": "爱丽儿",
+      "evidenceIds": [
+        "e-v1-s2-ariel"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s2-ship",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "taxonomy": "vehicle",
+      "label": "国王的船",
+      "evidenceIds": [
+        "e-v1-s2-ship"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-king-ship"
+    },
+    {
+      "id": "v1-s2-flame",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-02",
+      "taxonomy": "vfx",
+      "label": "船上分合火焰",
+      "evidenceIds": [
+        "e-v1-s2-flame"
+      ],
+      "evidenceKind": "inferred",
+      "confidence": "medium",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-alonso",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "character",
+      "label": "阿隆索",
+      "evidenceIds": [
+        "e-v1-s3-alonso"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-ariel",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "character",
+      "label": "爱丽儿",
+      "evidenceIds": [
+        "e-v1-s3-ariel"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-ariel"
+    },
+    {
+      "id": "v1-s3-harpy",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "costume",
+      "label": "爱丽儿鹰身女妖造型",
+      "evidenceIds": [
+        "e-v1-s3-harpy"
+      ],
+      "evidenceKind": "inferred",
+      "confidence": "medium",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-banquet",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "prop",
+      "label": "宴席桌与陈设",
+      "evidenceIds": [
+        "e-v1-s3-banquet"
+      ],
+      "evidenceKind": "inferred",
+      "confidence": "medium",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-swords",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "prop",
+      "label": "随身剑",
+      "evidenceIds": [
+        "e-v1-s3-swords"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-cue",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-03",
+      "taxonomy": "sound",
+      "label": "雷声与柔和音乐转换",
+      "evidenceIds": [
+        "e-v1-s3-cue"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v2-s3a-banquet-image",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03a",
+      "taxonomy": "vfx",
+      "label": "实时合成宴席影像",
+      "evidenceIds": [
+        "e-v2-s3a-banquet-image"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-banquet-table"
+    },
+    {
+      "id": "v2-s3b-ariel",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "taxonomy": "character",
+      "label": "爱丽儿",
+      "evidenceIds": [
+        "e-v2-s3b-ariel"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-ariel"
+    },
+    {
+      "id": "v2-s3b-table",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "taxonomy": "prop",
+      "label": "实物宴席桌",
+      "evidenceIds": [
+        "e-v2-s3b-table"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-banquet-table"
+    },
+    {
+      "id": "v2-s3b-cue",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "taxonomy": "sound",
+      "label": "雷声与柔和音乐转换",
+      "evidenceIds": [
+        "e-v2-s3b-cue"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-thunder-cue"
+    }
+  ],
+  "entities": [
+    {
+      "id": "entity-king-ship",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "vehicle",
+      "canonicalName": "国王的船",
+      "aliases": [
+        "海上船只"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-ship",
+        "v1-s2-ship"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-01"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-02"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-ariel",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "character",
+      "canonicalName": "爱丽儿",
+      "aliases": [
+        "Ariel"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s2-ariel",
+        "v1-s3-ariel"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-02"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-prospero",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "character",
+      "canonicalName": "普洛斯彼罗",
+      "aliases": [
+        "Prospero"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s2-prospero"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-02"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-boatswain",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "character",
+      "canonicalName": "水手长",
+      "aliases": [
+        "Boatswain"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-boatswain"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-01"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-alonso",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "character",
+      "canonicalName": "阿隆索",
+      "aliases": [
+        "Alonso"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s3-alonso"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-storm-sfx",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "sfx",
+      "canonicalName": "风暴与雷电效果",
+      "aliases": [
+        "暴风雨"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-storm"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-01"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-02"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-ariel-harpy-costume",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "costume",
+      "canonicalName": "爱丽儿鹰身女妖造型",
+      "aliases": [
+        "鹰身女妖造型"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s3-harpy"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-banquet-table",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "prop",
+      "canonicalName": "宴席桌与陈设",
+      "aliases": [
+        "宴席桌"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s3-banquet"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-ship-flame-vfx",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "vfx",
+      "canonicalName": "船上分合火焰",
+      "aliases": [
+        "船上火焰"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s2-flame"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-02"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-thunder-cue",
+      "projectId": "project-the-tempest-demo",
+      "taxonomy": "sound",
+      "canonicalName": "雷声与柔和音乐转换",
+      "aliases": [
+        "雷声转音乐"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s3-cue"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-03"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    }
+  ],
+  "taskDrafts": [
+    {
+      "id": "task-ship-continuity",
+      "entityId": "entity-king-ship",
+      "department": "art",
+      "title": "核对国王船只的跨场连续性",
+      "instructions": "确认样本 1（ACT I, SCENE I）的甲板状态与样本 2（ACT I, SCENE II）对同一船只、主桅、横桁和斜桅的描述使用同一资产口径。",
+      "dueHint": "资产评审前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-01",
+        "suggestionId": "v1-s1-ship",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1 · public-domain excerpt + project translation",
+        "sceneHeading": "1. ACT I, SCENE I — 海上船只",
+        "sceneText": "海上的一艘船：传来暴风雨中的雷鸣与闪电声。\n\n船长与水手长上。\n\n船长：水手长！\n\n水手长：在，船长！情况如何？\n\n船长：快去叫水手们动起来，不然船就要搁浅了。快，快！\n\n船长下。众水手上。\n\n水手长：振作点，伙计们！快，快！收起主帆！听船长的哨声。风啊，只要还有海面让我们转向，你就尽管吹到炸裂吧！",
+        "evidence": [
+          {
+            "id": "e-v1-s1-ship",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-01",
+            "quote": "海上的一艘船",
+            "range": {
+              "start": 0,
+              "end": 6
+            },
+            "kind": "explicit"
+          }
+        ],
+        "entityName": "国王的船"
+      }
+    },
+    {
+      "id": "task-ariel-harpy-look",
+      "entityId": "entity-ariel-harpy-costume",
+      "department": "costume",
+      "title": "拆解爱丽儿鹰身女妖造型",
+      "instructions": "基于原文形态证据，区分服装、翼部装置、妆发和可能的视觉合成；本任务材料不预设唯一实现。",
+      "dueHint": "造型测试前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-03",
+        "suggestionId": "v1-s3-harpy",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1 · public-domain excerpt + project translation",
+        "sceneHeading": "3. ACT III, SCENE III — 岛上宴席",
+        "sceneText": "阿隆索：我就上前进食吧，即便这是最后一餐也无妨，因为我觉得最好的时光已经过去。弟弟，还有公爵大人，都上前来，和我们一起吧。\n\n雷电交作。爱丽儿化作鹰身女妖上场；他用翅膀拍击桌面，借一套巧妙机关使宴席消失。\n\n爱丽儿：你们三个罪人，命运借永不餍足的大海支配尘世万物，又让海把你们吐上这座无人居住的岛。你们在人类之中，最不配活着。我已经使你们发狂；人正会凭着这种疯狂的勇气，把自己吊死或溺死。\n\n阿隆索、塞巴斯蒂安等人拔剑。\n\n爱丽儿：蠢人！我和同伴都是命运的使者。铸成你们宝剑的元素，若想伤我一根羽毛，就如同想刺伤呼啸的风，或用受嘲弄的剑击杀不断合拢的水一样徒劳；我的同伴也同样刀枪不入。\n\n他在雷声中消失；随后柔和的音乐响起，异形表演者再次上场，一边嘲弄地舞蹈，一边把桌子搬走。",
+        "evidence": [
+          {
+            "id": "e-v1-s3-harpy",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-03",
+            "quote": "爱丽儿化作鹰身女妖上场",
+            "range": {
+              "start": 68,
+              "end": 79
+            },
+            "kind": "inferred",
+            "rationale": "原文明确角色形态；服装、妆发、表演装置或视觉合成的实现仍需人工拆分。"
+          }
+        ],
+        "entityName": "爱丽儿鹰身女妖造型"
+      }
+    },
+    {
+      "id": "task-banquet-effect",
+      "entityId": "entity-banquet-table",
+      "department": "vfx",
+      "title": "确认宴席消失方案",
+      "instructions": "联合美术与 VFX 确认桌、食物陈设、拍翼动作及消失效果的责任边界。",
+      "dueHint": "技术预演前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-03",
+        "suggestionId": "v1-s3-banquet",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1 · public-domain excerpt + project translation",
+        "sceneHeading": "3. ACT III, SCENE III — 岛上宴席",
+        "sceneText": "阿隆索：我就上前进食吧，即便这是最后一餐也无妨，因为我觉得最好的时光已经过去。弟弟，还有公爵大人，都上前来，和我们一起吧。\n\n雷电交作。爱丽儿化作鹰身女妖上场；他用翅膀拍击桌面，借一套巧妙机关使宴席消失。\n\n爱丽儿：你们三个罪人，命运借永不餍足的大海支配尘世万物，又让海把你们吐上这座无人居住的岛。你们在人类之中，最不配活着。我已经使你们发狂；人正会凭着这种疯狂的勇气，把自己吊死或溺死。\n\n阿隆索、塞巴斯蒂安等人拔剑。\n\n爱丽儿：蠢人！我和同伴都是命运的使者。铸成你们宝剑的元素，若想伤我一根羽毛，就如同想刺伤呼啸的风，或用受嘲弄的剑击杀不断合拢的水一样徒劳；我的同伴也同样刀枪不入。\n\n他在雷声中消失；随后柔和的音乐响起，异形表演者再次上场，一边嘲弄地舞蹈，一边把桌子搬走。",
+        "evidence": [
+          {
+            "id": "e-v1-s3-banquet",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-03",
+            "quote": "用翅膀拍击桌面，借一套巧妙机关使宴席消失",
+            "range": {
+              "start": 81,
+              "end": 101
+            },
+            "kind": "inferred",
+            "rationale": "原文明确桌面动作和宴席消失；需要确认实物桌、食物陈设与消失机关的制作边界。"
+          }
+        ],
+        "entityName": "宴席桌与陈设"
+      }
+    },
+    {
+      "id": "task-thunder-music-cue",
+      "entityId": "entity-thunder-cue",
+      "department": "sound",
+      "title": "设计雷声到柔和音乐的转换提示",
+      "instructions": "按原文顺序准备雷声、角色消失点与柔和音乐进入点，保留可供灯光和舞台监督对齐的提示标记。",
+      "dueHint": "技术预演前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-03",
+        "suggestionId": "v1-s3-cue",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1 · public-domain excerpt + project translation",
+        "sceneHeading": "3. ACT III, SCENE III — 岛上宴席",
+        "sceneText": "阿隆索：我就上前进食吧，即便这是最后一餐也无妨，因为我觉得最好的时光已经过去。弟弟，还有公爵大人，都上前来，和我们一起吧。\n\n雷电交作。爱丽儿化作鹰身女妖上场；他用翅膀拍击桌面，借一套巧妙机关使宴席消失。\n\n爱丽儿：你们三个罪人，命运借永不餍足的大海支配尘世万物，又让海把你们吐上这座无人居住的岛。你们在人类之中，最不配活着。我已经使你们发狂；人正会凭着这种疯狂的勇气，把自己吊死或溺死。\n\n阿隆索、塞巴斯蒂安等人拔剑。\n\n爱丽儿：蠢人！我和同伴都是命运的使者。铸成你们宝剑的元素，若想伤我一根羽毛，就如同想刺伤呼啸的风，或用受嘲弄的剑击杀不断合拢的水一样徒劳；我的同伴也同样刀枪不入。\n\n他在雷声中消失；随后柔和的音乐响起，异形表演者再次上场，一边嘲弄地舞蹈，一边把桌子搬走。",
+        "evidence": [
+          {
+            "id": "e-v1-s3-cue",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-03",
+            "quote": "他在雷声中消失；随后柔和的音乐响起",
+            "range": {
+              "start": 295,
+              "end": 312
+            },
+            "kind": "explicit"
+          }
+        ],
+        "entityName": "雷声与柔和音乐转换"
+      }
+    }
+  ],
+  "versionImpacts": [
+    {
+      "id": "impact-v2-scene-split-ariel",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "entityId": "entity-ariel",
+      "taskDraftIds": [
+        "task-ariel-harpy-look"
+      ],
+      "reason": "scene_changed",
+      "summary": "V1 样本 3（ACT III, SCENE III）在 V2 被拆为样本 3 与样本 4；爱丽儿的鹰身女妖造型现落在样本 4。需人工追加新场次关联，V1 实体和任务快照不自动改写。",
+      "status": "pending"
+    },
+    {
+      "id": "impact-v2-banquet-medium",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-03a",
+      "entityId": "entity-banquet-table",
+      "taskDraftIds": [
+        "task-banquet-effect"
+      ],
+      "reason": "entity_match_changed",
+      "summary": "V2 保留实物桌，但把食物与器皿改为实时合成影像。需决定在既有宴席实体中合并制作变体，或为合成内容新建 VFX 实体。",
+      "status": "pending"
+    },
+    {
+      "id": "impact-v2-sound-association",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-03b",
+      "entityId": "entity-thunder-cue",
+      "taskDraftIds": [
+        "task-thunder-music-cue"
+      ],
+      "reason": "scene_changed",
+      "summary": "雷声与柔和音乐提示从 V1 样本 3 迁移到拆分后的 V2 样本 4；需确认新场次关联，原任务上下文保持 V1 快照。",
+      "status": "pending"
+    }
+  ]
+}

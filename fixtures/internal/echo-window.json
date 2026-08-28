@@ -1,0 +1,710 @@
+{
+  "_usage": "internal-only: structure-validation; not for public demo",
+  "projectId": "project-echo-window",
+  "versions": [
+    {
+      "id": "version-v1",
+      "projectId": "project-echo-window",
+      "label": "V1",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "sourceDigest": "2f8f3202fe20818bdfd3644febd35b513177f0b2f3eeff6ae0527231cf91cb62",
+      "scenes": [
+        {
+          "id": "version-v1-s1",
+          "versionId": "version-v1",
+          "ordinal": 1,
+          "heading": "1. 内景·XR影棚·夜",
+          "text": "LED墙循环播放一条湿漉漉的旧巷。地面铺着黑色反光板，雨声从四角音箱里持续传来。林乔站在一把红色雨伞下，伞尖压着一张折起的通行证。蓝色频闪掠过她的脸。\n\n陈默从控制台抬头，按停雨声。屏幕上只剩一扇亮着的窗。\n\n陈默：雨声停了，窗口还在。你确定通行证是在现场找到的？\n\n林乔把通行证递过去。通行证背面写着一串坐标。\n\n林乔：坐标指向这面墙里的巷口。",
+          "sourceRange": {
+            "start": 0,
+            "end": 187
+          }
+        },
+        {
+          "id": "version-v1-s2",
+          "versionId": "version-v1",
+          "ordinal": 2,
+          "heading": "2. 内景·虚拟巷口布景·夜",
+          "text": "同一把红色雨伞靠在生锈的路牌旁。LED墙上的雨幕映进积水，巷口尽头的窗一明一灭。林乔沿着地上的绿色胶带走到窗前，陈默跟在她身后。\n\n一阵短促的故障声从窗内传出。窗玻璃浮出通行证上的坐标，随后熄灭。\n\n陈默：不是投影故障。有人把坐标写进了雨幕。\n\n林乔抬起雨伞，遮住窗前的反光。",
+          "sourceRange": {
+            "start": 189,
+            "end": 343
+          }
+        },
+        {
+          "id": "version-v1-s3",
+          "versionId": "version-v1",
+          "ordinal": 3,
+          "heading": "3. 内景·XR影棚控制区·夜",
+          "text": "红色雨伞横放在控制台上。林乔把通行证贴近监视器，陈默调亮屏幕。四角音箱再次响起雨声，却比刚才少了一拍。\n\n监视器里的窗被拉近，窗内出现林乔自己的背影。蓝色频闪突然熄灭，影棚只剩雨声。\n\n林乔：它不是在重播巷口，它在等我回头。\n\n陈默关掉监视器。雨声没有停止。",
+          "sourceRange": {
+            "start": 345,
+            "end": 491
+          }
+        }
+      ]
+    },
+    {
+      "id": "version-v2",
+      "projectId": "project-echo-window",
+      "label": "V2 (demo)",
+      "parentVersionId": "version-v1",
+      "createdAt": "2026-08-28T00:05:00.000Z",
+      "sourceDigest": "5a3099e234d1ee4f4d8bfafab0b5c8018e1118d284536ae12993414ad6718484",
+      "scenes": [
+        {
+          "id": "version-v2-s1",
+          "versionId": "version-v2",
+          "ordinal": 1,
+          "heading": "1. 内景·XR影棚·夜",
+          "text": "LED墙循环播放一条湿漉漉的旧巷。地面铺着黑色反光板，雨声从四角音箱里持续传来。林乔站在一把红色雨伞下，伞尖压着一张折起的通行证。蓝色频闪掠过她的脸。\n\n陈默从控制台抬头，按停雨声。屏幕上只剩一扇亮着的窗。\n\n陈默：雨声停了，窗口还在。你确定通行证是在现场找到的？\n\n林乔把通行证递过去。通行证背面写着一串坐标。\n\n林乔：坐标指向这面墙里的巷口。",
+          "sourceRange": {
+            "start": 0,
+            "end": 187
+          }
+        },
+        {
+          "id": "version-v2-s2",
+          "versionId": "version-v2",
+          "ordinal": 2,
+          "heading": "2A. 内景·XR影棚排演区·夜",
+          "text": "红色雨伞靠在贴有绿色胶带的定位点旁。林乔按通行证上的坐标站位，陈默把LED墙的雨幕调成静帧。窗的轮廓在墙上亮起，却没有声音。\n\n陈默：先锁定站位，雨声留给下一段。",
+          "sourceRange": {
+            "start": 189,
+            "end": 288
+          }
+        },
+        {
+          "id": "version-v2-s3",
+          "versionId": "version-v2",
+          "ordinal": 3,
+          "heading": "2B. 内景·虚拟巷口布景·夜",
+          "text": "一把透明雨伞，伞缘带蓝色反光条，靠在生锈的路牌旁。巷口尽头的窗一明一灭；窗外的雨幕改为后期合成，不再由LED墙播放。林乔沿着绿色胶带走到窗前，陈默跟在她身后。\n\n一阵短促的故障声从窗内传出。窗玻璃浮出通行证上的坐标，随后熄灭。\n\n陈默：不是投影故障。有人把坐标写进了雨幕。\n\n林乔举起透明雨伞，遮住窗前的反光。",
+          "sourceRange": {
+            "start": 290,
+            "end": 462
+          }
+        },
+        {
+          "id": "version-v2-s4",
+          "versionId": "version-v2",
+          "ordinal": 4,
+          "heading": "3. 内景·XR影棚控制区·夜",
+          "text": "红色雨伞横放在控制台上。林乔把通行证贴近监视器，陈默调亮屏幕。四角音箱再次响起雨声，却比刚才少了一拍。\n\n监视器里的窗被拉近，窗内出现林乔自己的背影。蓝色频闪突然熄灭，影棚只剩雨声。\n\n林乔：它不是在重播巷口，它在等我回头。\n\n陈默关掉监视器。雨声没有停止。",
+          "sourceRange": {
+            "start": 464,
+            "end": 610
+          }
+        }
+      ]
+    }
+  ],
+  "sourceEvidence": [
+    {
+      "id": "e-v1-s1-lin",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "quote": "林乔站在一把红色雨伞下",
+      "range": {
+        "start": 40,
+        "end": 51
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-chen",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "quote": "陈默从控制台抬头",
+      "range": {
+        "start": 77,
+        "end": 85
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "quote": "一把红色雨伞",
+      "range": {
+        "start": 44,
+        "end": 50
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-xr",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "quote": "LED墙循环播放一条湿漉漉的旧巷",
+      "range": {
+        "start": 0,
+        "end": 16
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s1-light",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "quote": "蓝色频闪掠过她的脸",
+      "range": {
+        "start": 65,
+        "end": 74
+      },
+      "kind": "inferred",
+      "rationale": "“蓝色频闪”是可见的间歇性光效；需由灯光部门确认实现方式与安全参数。"
+    },
+    {
+      "id": "e-v1-s2-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "quote": "同一把红色雨伞",
+      "range": {
+        "start": 0,
+        "end": 7
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s2-rainwall",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "quote": "LED墙上的雨幕映进积水",
+      "range": {
+        "start": 16,
+        "end": 28
+      },
+      "kind": "inferred",
+      "rationale": "原文明确 LED 雨幕与地面倒影同时入镜；需由 VFX 与现场部门确认实现边界。"
+    },
+    {
+      "id": "e-v1-s2-sound",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "quote": "一阵短促的故障声从窗内传出",
+      "range": {
+        "start": 66,
+        "end": 79
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v1-s3-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s3",
+      "quote": "红色雨伞横放在控制台上",
+      "range": {
+        "start": 0,
+        "end": 11
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s2a-umbrella",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s2",
+      "quote": "红色雨伞靠在贴有绿色胶带的定位点旁",
+      "range": {
+        "start": 0,
+        "end": 17
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s2b-umbrella",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "quote": "一把透明雨伞，伞缘带蓝色反光条",
+      "range": {
+        "start": 0,
+        "end": 15
+      },
+      "kind": "explicit"
+    },
+    {
+      "id": "e-v2-s2b-rain",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "quote": "窗外的雨幕改为后期合成，不再由LED墙播放",
+      "range": {
+        "start": 36,
+        "end": 57
+      },
+      "kind": "explicit"
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "v1-s1-lin",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "taxonomy": "character",
+      "label": "林乔",
+      "evidenceIds": [
+        "e-v1-s1-lin"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-chen",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "taxonomy": "character",
+      "label": "陈默",
+      "evidenceIds": [
+        "e-v1-s1-chen"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "taxonomy": "prop",
+      "label": "红色雨伞",
+      "evidenceIds": [
+        "e-v1-s1-umbrella"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-xr",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "taxonomy": "set",
+      "label": "XR影棚",
+      "evidenceIds": [
+        "e-v1-s1-xr"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s1-light",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s1",
+      "taxonomy": "lighting",
+      "label": "蓝色频闪灯光效果",
+      "evidenceIds": [
+        "e-v1-s1-light"
+      ],
+      "evidenceKind": "inferred",
+      "confidence": "medium",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "description": "“蓝色频闪”是可见的间歇性光效；需由灯光部门确认实现方式与安全参数。"
+    },
+    {
+      "id": "v1-s2-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "taxonomy": "prop",
+      "label": "红色雨伞",
+      "evidenceIds": [
+        "e-v1-s2-umbrella"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-red-umbrella"
+    },
+    {
+      "id": "v1-s2-rainwall",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "taxonomy": "vfx",
+      "label": "LED雨幕与积水倒影",
+      "evidenceIds": [
+        "e-v1-s2-rainwall"
+      ],
+      "evidenceKind": "inferred",
+      "confidence": "medium",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "description": "原文明确 LED 雨幕与地面倒影同时入镜；需由 VFX 与现场部门确认实现边界。"
+    },
+    {
+      "id": "v1-s2-sound",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s2",
+      "taxonomy": "sound",
+      "label": "窗内短促故障声",
+      "evidenceIds": [
+        "e-v1-s2-sound"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v1-s3-umbrella",
+      "versionId": "version-v1",
+      "sceneId": "version-v1-s3",
+      "taxonomy": "prop",
+      "label": "红色雨伞",
+      "evidenceIds": [
+        "e-v1-s3-umbrella"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "accepted",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-red-umbrella"
+    },
+    {
+      "id": "v2-s2a-umbrella",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s2",
+      "taxonomy": "prop",
+      "label": "红色雨伞",
+      "evidenceIds": [
+        "e-v2-s2a-umbrella"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-red-umbrella"
+    },
+    {
+      "id": "v2-s2b-umbrella",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "taxonomy": "prop",
+      "label": "透明雨伞（蓝色反光条）",
+      "evidenceIds": [
+        "e-v2-s2b-umbrella"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "v2-s2b-rain",
+      "versionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "taxonomy": "vfx",
+      "label": "后期合成雨幕",
+      "evidenceIds": [
+        "e-v2-s2b-rain"
+      ],
+      "evidenceKind": "explicit",
+      "confidence": "high",
+      "status": "pending",
+      "createdBy": "mock",
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "proposedEntityId": "entity-led-rain-vfx"
+    }
+  ],
+  "entities": [
+    {
+      "id": "entity-lin-qiao",
+      "projectId": "project-echo-window",
+      "taxonomy": "character",
+      "canonicalName": "林乔",
+      "aliases": [],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-lin"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s1"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-chen-mo",
+      "projectId": "project-echo-window",
+      "taxonomy": "character",
+      "canonicalName": "陈默",
+      "aliases": [],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-chen"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s1"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-red-umbrella",
+      "projectId": "project-echo-window",
+      "taxonomy": "prop",
+      "canonicalName": "红色雨伞",
+      "aliases": [
+        "雨伞"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-umbrella",
+        "v1-s2-umbrella",
+        "v1-s3-umbrella"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s1"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s2"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s3"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-xr-stage",
+      "projectId": "project-echo-window",
+      "taxonomy": "set",
+      "canonicalName": "XR影棚与虚拟巷口布景",
+      "aliases": [
+        "XR影棚"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s1-xr"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s1"
+        },
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s2"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-led-rain-vfx",
+      "projectId": "project-echo-window",
+      "taxonomy": "vfx",
+      "canonicalName": "LED雨幕与积水倒影",
+      "aliases": [
+        "雨幕"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s2-rainwall"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s2"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    },
+    {
+      "id": "entity-window-fault-sound",
+      "projectId": "project-echo-window",
+      "taxonomy": "sound",
+      "canonicalName": "窗内短促故障声",
+      "aliases": [
+        "故障声"
+      ],
+      "status": "active",
+      "sourceSuggestionIds": [
+        "v1-s2-sound"
+      ],
+      "sceneRefs": [
+        {
+          "versionId": "version-v1",
+          "sceneId": "version-v1-s2"
+        }
+      ],
+      "createdAt": "2026-08-28T00:00:00.000Z",
+      "updatedAt": "2026-08-28T00:00:00.000Z"
+    }
+  ],
+  "taskDrafts": [
+    {
+      "id": "task-v1-umbrella",
+      "entityId": "entity-red-umbrella",
+      "department": "art",
+      "title": "核对红色雨伞跨场连续性",
+      "instructions": "准备同一把红色雨伞；核对场 1、2、3 的颜色、伞尖和摆放状态，并在拍摄前提交连续性照片。",
+      "dueHint": "拍摄日前一天",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-s1",
+        "suggestionId": "v1-s1-umbrella",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1",
+        "sceneHeading": "1. 内景·XR影棚·夜",
+        "sceneText": "LED墙循环播放一条湿漉漉的旧巷。地面铺着黑色反光板，雨声从四角音箱里持续传来。林乔站在一把红色雨伞下，伞尖压着一张折起的通行证。蓝色频闪掠过她的脸。\n\n陈默从控制台抬头，按停雨声。屏幕上只剩一扇亮着的窗。\n\n陈默：雨声停了，窗口还在。你确定通行证是在现场找到的？\n\n林乔把通行证递过去。通行证背面写着一串坐标。\n\n林乔：坐标指向这面墙里的巷口。",
+        "evidence": [
+          {
+            "id": "e-v1-s1-umbrella",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-s1",
+            "quote": "一把红色雨伞",
+            "range": {
+              "start": 44,
+              "end": 50
+            },
+            "kind": "explicit"
+          }
+        ],
+        "entityName": "红色雨伞"
+      }
+    },
+    {
+      "id": "task-v1-rain-vfx",
+      "entityId": "entity-led-rain-vfx",
+      "department": "vfx",
+      "title": "确认雨幕与积水倒影实现方案",
+      "instructions": "确认场 2 的屏幕内容、现场反射与后期补强的责任边界。",
+      "dueHint": "技术预演前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-s2",
+        "suggestionId": "v1-s2-rainwall",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1",
+        "sceneHeading": "2. 内景·虚拟巷口布景·夜",
+        "sceneText": "同一把红色雨伞靠在生锈的路牌旁。LED墙上的雨幕映进积水，巷口尽头的窗一明一灭。林乔沿着地上的绿色胶带走到窗前，陈默跟在她身后。\n\n一阵短促的故障声从窗内传出。窗玻璃浮出通行证上的坐标，随后熄灭。\n\n陈默：不是投影故障。有人把坐标写进了雨幕。\n\n林乔抬起雨伞，遮住窗前的反光。",
+        "evidence": [
+          {
+            "id": "e-v1-s2-rainwall",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-s2",
+            "quote": "LED墙上的雨幕映进积水",
+            "range": {
+              "start": 16,
+              "end": 28
+            },
+            "kind": "inferred",
+            "rationale": "原文明确 LED 雨幕与地面倒影同时入镜；需由 VFX 与现场部门确认实现边界。"
+          }
+        ],
+        "entityName": "LED雨幕与积水倒影"
+      }
+    },
+    {
+      "id": "task-v1-fault-sound",
+      "entityId": "entity-window-fault-sound",
+      "department": "sound",
+      "title": "制作窗内短促故障声草稿",
+      "instructions": "准备可循环的提示音，并为现场回放保留独立轨道。",
+      "dueHint": "技术预演前",
+      "status": "draft",
+      "createdFrom": {
+        "versionId": "version-v1",
+        "sceneId": "version-v1-s2",
+        "suggestionId": "v1-s2-sound",
+        "createdAt": "2026-08-28T00:00:00.000Z"
+      },
+      "contextSnapshot": {
+        "versionLabel": "V1",
+        "sceneHeading": "2. 内景·虚拟巷口布景·夜",
+        "sceneText": "同一把红色雨伞靠在生锈的路牌旁。LED墙上的雨幕映进积水，巷口尽头的窗一明一灭。林乔沿着地上的绿色胶带走到窗前，陈默跟在她身后。\n\n一阵短促的故障声从窗内传出。窗玻璃浮出通行证上的坐标，随后熄灭。\n\n陈默：不是投影故障。有人把坐标写进了雨幕。\n\n林乔抬起雨伞，遮住窗前的反光。",
+        "evidence": [
+          {
+            "id": "e-v1-s2-sound",
+            "versionId": "version-v1",
+            "sceneId": "version-v1-s2",
+            "quote": "一阵短促的故障声从窗内传出",
+            "range": {
+              "start": 66,
+              "end": 79
+            },
+            "kind": "explicit"
+          }
+        ],
+        "entityName": "窗内短促故障声"
+      }
+    }
+  ],
+  "versionImpacts": [
+    {
+      "id": "impact-v2-scene-split",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-s2",
+      "entityId": "entity-red-umbrella",
+      "taskDraftIds": [
+        "task-v1-umbrella"
+      ],
+      "reason": "scene_changed",
+      "summary": "V1 场 2 被拆为 V2 场 2A 与 2B；红色雨伞在 2A 仍出现，需人工确认既有道具实体是否追加该场次来源。",
+      "status": "pending"
+    },
+    {
+      "id": "impact-v2-umbrella-change",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "entityId": "entity-red-umbrella",
+      "taskDraftIds": [
+        "task-v1-umbrella"
+      ],
+      "reason": "entity_match_changed",
+      "summary": "V2 场 2B 改为带蓝色反光条的透明雨伞；需决定合并为资产变体或新建实体，既有任务不自动改写。",
+      "status": "pending"
+    },
+    {
+      "id": "impact-v2-rain-vfx-change",
+      "fromVersionId": "version-v1",
+      "toVersionId": "version-v2",
+      "sceneId": "version-v2-s3",
+      "entityId": "entity-led-rain-vfx",
+      "taskDraftIds": [
+        "task-v1-rain-vfx"
+      ],
+      "reason": "evidence_changed",
+      "summary": "V2 场 2B 明确雨幕改为后期合成，不再由 LED 墙播放；需审阅 VFX 实体和任务草稿的处理。",
+      "status": "pending"
+    }
+  ]
+}

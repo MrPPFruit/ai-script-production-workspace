@@ -1,0 +1,23 @@
+.DS_Store
+
+# Dependencies and generated output
+node_modules/
+web/node_modules/
+dist/
+web/dist/
+coverage/
+web/artifacts/
+
+# Local and deployment state
+.codex/
+.vercel/
+web/.vercel/
+*.log
+
+# Secrets: commit only explicit empty examples
+.env
+.env.*
+!.env.example
+web/.env
+web/.env.*
+!web/.env.example

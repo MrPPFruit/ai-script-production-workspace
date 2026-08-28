@@ -1,0 +1,17 @@
+{
+  "change": "build-ai-script-production-workspace",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "4d23ea89ecdf1305d7ace6a1d442762962129a7e4892ac256b89d4304f908dec",
+  "files": [
+    { "path": "openspec/changes/build-ai-script-production-workspace/proposal.md", "sha256": "2382f853e1b2d25e5aa05f2e65555a6c33e70c796bea72dab993be1b97b6a5d6" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/design.md", "sha256": "f2b46ac71ad0f0ca0d6c82dae624be95371666c6bb2547fa85262cbac70f9c60" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/tasks.md", "sha256": "dea5c830a808cf7aec7793fec71ffd6ea9207914e45e502aef2015ad89bc9715" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/specs/production-entity-tasking/spec.md", "sha256": "26d52295ed61542fcdb49597a382c2efe200bd2ec782918d35da48eec45c1aa2" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/specs/safe-ai-demo-delivery/spec.md", "sha256": "025d6711a7588715a203ba2af8c53570b84775a1f4bcdd620f6cc5ab8ca5ede1" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/specs/script-breakdown-review/spec.md", "sha256": "d81781db617d530d97309ee661fc94f6abc13c9c269a61578060b972787cdfd9" },
+    { "path": "openspec/changes/build-ai-script-production-workspace/specs/script-version-impact/spec.md", "sha256": "97e03462bcf1c2eef3ebe865d812a7daff292ae41f41c3b48c4cad7d663fdd52" }
+  ]
+}
