@@ -1,26 +1,26 @@
 import fixture from "../../fixtures/default-script.json";
-import v1Markdown from "../../fixtures/default-script-v1.md?raw";
 import type { ProductionEntity, Scene, Suggestion, TaskRow, VersionImpact, VersionOption } from "./types";
 
-type RawScene = { id: string; versionId: string; ordinal: number; heading: string; text: string };
+type RawScene = { id: string; versionId: string; ordinal: number; heading: string; text: string; fullTextRange?: { start: number; end: number } };
 type RawEvidence = { id: string; sceneId: string; quote: string; range: { start: number; end: number }; kind: "explicit" | "inferred"; rationale?: string };
 type RawSuggestion = { id: string; sceneId: string; taxonomy: string; label: string; evidenceIds: string[]; status: string; description?: string; proposedEntityId?: string };
 type RawEntity = { id: string; taxonomy: string; canonicalName: string; aliases: string[]; sceneRefs: Array<{ sceneId: string }> };
 type RawTask = { id: string; entityId: string; department: string; title: string; instructions: string; createdFrom: { sceneId: string }; contextSnapshot: { versionLabel: string } };
-type RawVersion = { id: string; label: string; scenes: RawScene[] };
+type RawVersion = { id: string; label: string; fullText: string; scenes: RawScene[] };
 type RawFixture = { versions: RawVersion[]; sceneMetadata: Record<string, { sampleNumber: number; sourceAct?: string; sourceScene?: string; sourceUrl?: string; sourceLocator?: string; authority?: string }>; sourceEvidence: RawEvidence[]; suggestions: RawSuggestion[]; entities: RawEntity[]; taskDrafts: RawTask[]; versionImpacts: Array<Omit<VersionImpact, "status"> & { status: string }> };
 
 export const formalFixture = fixture as RawFixture;
 const evidenceById = new Map(formalFixture.sourceEvidence.map((item) => [item.id, item]));
-const englishBlocks = [...v1Markdown.matchAll(/## \d+\. ACT[^\n]*\n\n### English source excerpt \(public domain\)\n\n([\s\S]*?)\n\n### 简体中文对照/g)].map((match) => match[1].trim());
 export const versionOptions: VersionOption[] = formalFixture.versions.map((version) => ({ id: version.id, label: version.label, isDemoAdaptation: version.id === "version-v2" }));
+
+export function fullTextForVersion(versionId: string) { return formalFixture.versions.find((item) => item.id === versionId)?.fullText ?? ""; }
 
 export function scenesForVersion(versionId: string): Scene[] {
   const version = formalFixture.versions.find((item) => item.id === versionId);
   if (!version) return [];
   return version.scenes.map((scene, index) => {
     const metadata = formalFixture.sceneMetadata[scene.id] ?? { sampleNumber: index + 1 };
-    return { id: scene.id, versionId, sampleIndex: metadata.sampleNumber, title: scene.heading, sourceAct: metadata.sourceAct, sourceScene: metadata.sourceScene, sourceUrl: metadata.sourceUrl, sourceLocator: metadata.sourceLocator, text: scene.text, englishExcerpt: versionId === "version-v1" ? englishBlocks[index] : undefined, isDemoAdaptation: metadata.authority === "demo-production-adaptation" };
+    return { id: scene.id, versionId, sampleIndex: metadata.sampleNumber, title: scene.heading, sourceAct: metadata.sourceAct, sourceScene: metadata.sourceScene, sourceUrl: metadata.sourceUrl, sourceLocator: metadata.sourceLocator, text: scene.text, fullTextRange: scene.fullTextRange, isDemoAdaptation: metadata.authority === "demo-production-adaptation" };
   });
 }
 
