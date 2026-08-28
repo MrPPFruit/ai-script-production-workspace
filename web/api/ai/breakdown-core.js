@@ -55,10 +55,12 @@ export async function handleBreakdown({ method, body: rawBody, apiKey, fetchImpl
       method: "POST",
       signal: controller.signal,
       headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
-      body: JSON.stringify({ model: MODEL, temperature: 0, max_tokens: 1800, response_format: { type: "json_object" }, messages: [{ role: "user", content: prompt(body) }] }),
+      body: JSON.stringify({ model: MODEL, temperature: 0, thinking: { type: "disabled" }, max_tokens: 1800, response_format: { type: "json_object" }, messages: [{ role: "user", content: prompt(body) }] }),
     });
     if (!upstream.ok) return { status: 200, body: fallback(body, id, "UPSTREAM_ERROR") };
-    const payload = JSON.parse((await upstream.json())?.choices?.[0]?.message?.content || "");
+    const choice = (await upstream.json())?.choices?.[0];
+    if (choice?.finish_reason === "length") return { status: 200, body: fallback(body, id, "INVALID_MODEL_OUTPUT") };
+    const payload = JSON.parse(choice?.message?.content || "");
     const suggestions = normalize(payload, body);
     return suggestions ? { status: 200, body: { mode: "deepseek", requestId: id, suggestions } } : { status: 200, body: fallback(body, id, "INVALID_MODEL_OUTPUT") };
   } catch (error) {
