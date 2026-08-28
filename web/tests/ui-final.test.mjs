@@ -83,7 +83,10 @@ test("产品手册与版本编辑边界均有真实入口和清楚说明", () =>
   assert.match(app, /筛选实体分类/);
   assert.match(app, /实体名称、生产分类和 Metadata/);
   assert.match(app, /筛选任务部门/);
-  assert.match(guide, /href="\/"/);
+  assert.match(guide, /href="https:\/\/script-demo\.ppserver\.xyz\/"/);
+  assert.match(guide, /在线工作台（正式入口）/);
+  assert.match(guide, /https:\/\/script-demo\.ppserver\.xyz/);
+  assert.match(guide, /离线产品手册/);
   assert.match(guide, /从剧本到部门材料的完整\s+Workflow/);
   assert.match(guide, /剧本版本化编辑：正确流程与本轮边界/);
   assert.match(guide, /三分钟演示脚本/);

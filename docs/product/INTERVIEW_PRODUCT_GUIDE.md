@@ -1,5 +1,13 @@
 # AI 剧本生产工作台｜面试官产品手册
 
+## 快速体验与交付入口
+
+- **在线工作台（正式入口）**：<https://script-demo.ppserver.xyz/>
+- **在线产品手册**：<https://script-demo.ppserver.xyz/product-guide>
+- **公开 GitHub 仓库**：<https://github.com/MrPPFruit/ai-script-production-workspace>
+- **离线产品手册**：交付压缩包根目录的 `产品手册.html`，双击即可阅读，不依赖网络。
+- **本地交互 Demo**：解压后双击 `启动本地网页.command`，再打开 <http://127.0.0.1:8080/>；本地静态版不包含服务端 DeepSeek Secret，真实 AI 调用请使用正式在线入口。
+
 > 面试 Demo：**《雷雨》·面试 Demo 导入版本（第四幕）**
 > 本手册是面试官入口，说明产品价值、可演示链路与真实完成度。详细产品合同见 [PRODUCT_SPEC.md](./PRODUCT_SPEC.md)，范围决策见 [SCOPE_DECISIONS.md](./SCOPE_DECISIONS.md)，逐秒演示口径见 [DEMO_SCRIPT.md](./DEMO_SCRIPT.md)。
 
