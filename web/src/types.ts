@@ -3,7 +3,7 @@ export type EntityRelation = "stable" | "needs-review" | "split" | "kept";
 
 export interface Scene { id: string; versionId: string; sampleIndex: number; title: string; sourceAct?: string; sourceScene?: string; sourceUrl?: string; sourceLocator?: string; text: string; fullTextRange?: { start: number; end: number }; isDemoAdaptation: boolean; }
 export type ProcessingState = "waiting" | "queued" | "preparing" | "requesting" | "review_ready" | "fallback_ready" | "failed" | "cancelled";
-export interface SceneProcessing { state: ProcessingState; mode: "deepseek" | "fallback" | null; reason: string | null; suggestionCount: number; }
+export interface SceneProcessing { state: ProcessingState; mode: "deepseek" | "fallback" | null; reason: string | null; requestId?: string | null; suggestionCount: number; }
 export interface Suggestion { id: string; type: string; taxonomy: string; source: string; sourceRange: { start: number; end: number }; value: string; detail: string; sourceSceneId: string; mergeTargetId?: string; status: SuggestionStatus; mode: "deepseek" | "fallback" | "fixture"; reason?: string; }
 export interface ProductionEntity { id: string; name: string; kind: string; taxonomy: string; metadata: string; sourceSceneIds: string[]; relation: EntityRelation; taskMaterialReady: boolean; }
 export type TaskReviewStatus = "草稿" | "待复核" | "已确认";
