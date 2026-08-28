@@ -46,17 +46,19 @@ Cloudflare Pages 支持 GitHub / GitLab 自动部署，也支持 Wrangler Direct
 | 项目项 | 当前状态 |
 | --- | --- |
 | Sites 项目 | 已创建并已将真实 `project_id` 写入 `web/.openai/hosting.json` |
-| 静态页面 | 待本任务完成构建、Sites 版本保存和生产发布后回填 |
+| 静态页面 | 已将版本 1 私有发布到 `https://ai-script-production-workspace.ppfruit.chatgpt.site`；owner 鉴权请求返回 200，未鉴权请求返回 401 |
 | 同源 `/api/ai/breakdown` | **未部署、不可用**；当前 Worker 只处理静态资产和 SPA fallback |
 | `DEEPSEEK_API_KEY` | **未配置**；不得写入代码、Git、构建产物、终端输出或文档 |
 | DeepSeek 真调用 | **未验收**；必须等 Worker adapter 完成、Secret 由用户安全录入后单独验证 |
 
-当前静态页面来自 integration commit `47141b9` 的已验证基线。页面仍明确展示“确定性 Demo 数据 · 未调用模型”；存在 `web/api/ai/breakdown.js` 不等于它已适配 Cloudflare Worker，也不等于线上 API 可用。
+当前静态页面来自 integration commit `47141b9` 的已验证基线，Sites 版本 1 对应托管提交 `94b46b2`。页面仍明确展示“确定性 Demo 数据 · 未调用模型”；线上 `POST /api/ai/breakdown` 已验证返回 404。存在 `web/api/ai/breakdown.js` 不等于它已适配 Cloudflare Worker，也不等于线上 API 可用。
+
+用户已决定放弃《暴风雨》，后续改用中文默认剧本。因此版本 1 的页面内容已经过期，只能作为 **Cloudflare 网络连通性测试基线**；它不接受内容正确性验收，也不是最终演示内容版本。该变化不需要重做 Site 或更换稳定 URL，后续在同一 Site 发布新版本即可。
 
 ### 3. 用户无 VPN 实测状态
 
 - 用户已确认：其**既有** Cloudflare 部署在中国大陆无 VPN 可访问，但可能较慢；VPN 访问没有问题。
-- 本项目新 Cloudflare / Sites URL：尚未由中国大陆无 VPN 设备实测，状态为 `unknown`，发布后必须重新验证。
+- 本项目新 Cloudflare / Sites URL：已完成 owner 鉴权下的服务端访问验证，但尚未由中国大陆无 VPN 设备实测，状态仍为 `unknown`。
 - 当前匿名 Vercel 临时链接：用户实际环境中 VPN 开启时返回 `403 Forbidden`，关闭 VPN 时无法访问，因此该**具体链接**不能交付。这是具体链路实测，不泛化为所有 Vercel 部署都不可用。
 
 Vercel 官方也说明其没有中国大陆基础设施，`.vercel.app` 域名可能被阻断；自定义域名只能降低域名层面的风险，不能提供大陆可达性保证：[Accessing Vercel-hosted sites from mainland China](https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china)。
@@ -138,9 +140,9 @@ Cloudflare China Network 是与京东云合作的企业产品，需要单独订�
 
 ### 今天可做
 
-- 在同一 Sites 项目发布 47141b9 的静态基线，获得稳定生产 URL。
-- 运行类型检查、Sites Worker 测试、生产构建和产物结构检查。
-- 验证 URL 能返回静态页面，并确认 `/api/ai/breakdown` 没有被误报为可用。
+- 已在同一 Sites 项目发布 47141b9 的静态基线，获得稳定生产 URL；此版本只验收网络连通性。
+- 已运行类型检查、Sites Worker 测试、生产构建和产物结构检查。
+- 已验证 owner 鉴权下静态首页返回 200，并确认 `/api/ai/breakdown` 返回 404、没有被误报为可用。
 - 后续 AI Worker adapter 完成后，在同一 Site 保存新版本并更新发布，不更换用户测试入口。
 
 ### 需要用户提供或现场操作
@@ -158,8 +160,7 @@ Cloudflare China Network 是与京东云合作的企业产品，需要单独订�
 
 ## 回滚与链接生命周期
 
-- Sites 每次发布基于已保存版本；出现回归时应重新发布上一份已验证版本，而不是删除项目或复用来源不明的构建产物。
+- Sites 每次发布基于已保存版本；当前可回滚点是版本 1（托管提交 `94b46b2`）。出现回归时应重新发布上一份已验证版本，而不是删除项目或复用来源不明的构建产物。
 - 当前目标是稳定 Cloudflare / Sites 生产 URL；同一 Site 后续更新版本时入口保持不变，实际 URL 以发布结果为准。
 - EdgeOne 中国大陆系统预览 URL 只有 3 小时，过期后返回 401；它不是永久链接。若启用备用方案，应在面试前重新生成并现场验证。
 - 不删除或覆盖现有 Vercel 部署；只是停止把已实测失败的匿名链接作为交付入口，因此回滚不依赖它。
-
