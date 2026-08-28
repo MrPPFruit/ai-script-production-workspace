@@ -1,24 +1,38 @@
-import type { ProductionEntity, Scene, Suggestion, TaskRow } from "./types";
+import fixture from "../../fixtures/default-script.json";
+import v1Markdown from "../../fixtures/default-script-v1.md?raw";
+import type { ProductionEntity, Scene, Suggestion, TaskRow, VersionImpact, VersionOption } from "./types";
 
-export const scenes: Scene[] = [
-  { id: 12, sampleIndex: 1, title: "外景 · 码头 · 夜", productionLabel: "样本第 1 项", version: "V2 · 已更新", updated: true },
-  { id: 13, sampleIndex: 2, title: "内景 · 旧仓库 · 夜", productionLabel: "样本第 2 项", version: "V2 · 已更新", updated: true },
-  { id: 14, sampleIndex: 4, title: "外景 · 防波堤 · 黎明", productionLabel: "样本第 4 项", version: "V2 · 已更新", updated: true },
-];
+type RawScene = { id: string; versionId: string; ordinal: number; heading: string; text: string };
+type RawEvidence = { id: string; sceneId: string; quote: string; kind: "explicit" | "inferred"; rationale?: string };
+type RawSuggestion = { id: string; sceneId: string; taxonomy: string; label: string; evidenceIds: string[]; status: string; description?: string; proposedEntityId?: string };
+type RawEntity = { id: string; taxonomy: string; canonicalName: string; aliases: string[]; sceneRefs: Array<{ sceneId: string }> };
+type RawTask = { id: string; entityId: string; department: string; title: string; instructions: string; createdFrom: { sceneId: string }; contextSnapshot: { versionLabel: string } };
+type RawVersion = { id: string; label: string; scenes: RawScene[] };
+type RawFixture = { versions: RawVersion[]; sceneMetadata: Record<string, { sampleNumber: number; sourceAct?: string; sourceScene?: string; sourceUrl?: string; sourceLocator?: string; authority?: string }>; sourceEvidence: RawEvidence[]; suggestions: RawSuggestion[]; entities: RawEntity[]; taskDrafts: RawTask[]; versionImpacts: Array<Omit<VersionImpact, "status"> & { status: string }> };
 
-export const seedSuggestions: Suggestion[] = [
-  { id: 1, type: "场景", source: "仓库内部昏暗。高大的空间里回荡着水滴落下的声音。", value: "旧仓库 · 夜 · 内部", detail: "可创建为稳定场景实体，或并入已有“旧仓库内部”。", sourceSampleIndex: 2, mergeTargetId: "warehouse", status: "pending" },
-  { id: 2, type: "道具", source: "右侧是一扇锈蚀的卷帘门，门缝下透出一线冷风。", value: "锈蚀的卷帘门（右侧）", detail: "把关键道具与空间方位交给置景主管。", sourceSampleIndex: 2, mergeTargetId: "door", status: "pending" },
-  { id: 3, type: "视觉特效", source: "远处，隐约传来货轮汽笛的声音，由远及近，又被风声带走。", value: "货轮汽笛（远处，环境音效）", detail: "保留距离与运动方向，供声音部门评估。", sourceSampleIndex: 2, mergeTargetId: "sound", status: "pending" },
-];
+export const formalFixture = fixture as RawFixture;
+const evidenceById = new Map(formalFixture.sourceEvidence.map((item) => [item.id, item]));
+const englishBlocks = [...v1Markdown.matchAll(/## \d+\. ACT[^\n]*\n\n### English source excerpt \(public domain\)\n\n([\s\S]*?)\n\n### 简体中文对照/g)].map((match) => match[1].trim());
+export const versionOptions: VersionOption[] = formalFixture.versions.map((version) => ({ id: version.id, label: version.label, isDemoAdaptation: version.id === "version-v2" }));
 
-export const seedEntities: ProductionEntity[] = [
-  { id: "warehouse", name: "旧仓库内部", kind: "场景", metadata: "内景 · 夜 · 置景", sourceSampleIndices: [2], relation: "stable", taskMaterialReady: true },
-  { id: "door", name: "锈蚀的卷帘门", kind: "道具", metadata: "右侧 · 实体道具", sourceSampleIndices: [2], relation: "stable", taskMaterialReady: true },
-  { id: "sound", name: "货轮汽笛", kind: "视觉特效", metadata: "远处 · 环境音", sourceSampleIndices: [2, 4], relation: "needs-review", taskMaterialReady: false },
-];
+export function scenesForVersion(versionId: string): Scene[] {
+  const version = formalFixture.versions.find((item) => item.id === versionId);
+  if (!version) return [];
+  return version.scenes.map((scene, index) => {
+    const metadata = formalFixture.sceneMetadata[scene.id] ?? { sampleNumber: index + 1 };
+    return { id: scene.id, versionId, sampleIndex: metadata.sampleNumber, title: scene.heading, sourceAct: metadata.sourceAct, sourceScene: metadata.sourceScene, sourceUrl: metadata.sourceUrl, sourceLocator: metadata.sourceLocator, text: scene.text, englishExcerpt: versionId === "version-v1" ? englishBlocks[index] : undefined, isDemoAdaptation: metadata.authority === "demo-production-adaptation" };
+  });
+}
 
-export const seedTasks: TaskRow[] = [
-  { id: "warehouse-task", entityId: "warehouse", department: "美术组", task: "场景搭建", sourceSampleIndices: [2], content: "旧仓库内部，场景搭建材料", priority: "高", done: false },
-  { id: "door-task", entityId: "door", department: "美术组", task: "道具准备", sourceSampleIndices: [2], content: "锈蚀的卷帘门，制作/布置材料", priority: "中", done: false },
-];
+export function suggestionsForScene(sceneId: string): Suggestion[] {
+  return formalFixture.suggestions.filter((item) => item.sceneId === sceneId).map((item) => {
+    const evidence = evidenceById.get(item.evidenceIds[0]);
+    return { id: item.id, type: taxonomyLabel(item.taxonomy), taxonomy: item.taxonomy, source: evidence?.quote ?? "来源证据待核对", value: item.label, detail: evidence?.rationale ?? item.description ?? (evidence?.kind === "explicit" ? "原文直接支持，仍需人工决定是否采用。" : "需要人工补充制作判断。"), sourceSceneId: item.sceneId, mergeTargetId: item.proposedEntityId, status: item.status === "accepted" ? "adopted" : "pending" };
+  });
+}
+
+export const taxonomyLabel = (value: string) => ({ character: "角色", vehicle: "载具", prop: "道具", costume: "服化", vfx: "视觉特效", sfx: "特技效果", sound: "声音", lighting: "灯光", set: "场景", location: "场地" }[value] ?? value);
+
+export const seedEntities: ProductionEntity[] = formalFixture.entities.map((item) => ({ id: item.id, name: item.canonicalName, kind: taxonomyLabel(item.taxonomy), metadata: `规范类型：${item.taxonomy}${item.aliases.length ? ` · 别名：${item.aliases.join("、")}` : ""}`, sourceSceneIds: item.sceneRefs.map((ref) => ref.sceneId), relation: formalFixture.versionImpacts.some((impact) => impact.entityId === item.id && impact.status === "pending") ? "needs-review" : "stable", taskMaterialReady: formalFixture.taskDrafts.some((task) => task.entityId === item.id) }));
+export const seedTasks: TaskRow[] = formalFixture.taskDrafts.map((item) => ({ id: item.id, entityId: item.entityId, department: item.department, task: item.title, sourceSceneIds: [item.createdFrom.sceneId], content: item.instructions, priority: item.department === "vfx" ? "高" : "中", done: false, versionLabel: item.contextSnapshot.versionLabel }));
+export const seedImpacts: VersionImpact[] = formalFixture.versionImpacts.map((item) => ({ ...item, status: item.status as VersionImpact["status"] }));

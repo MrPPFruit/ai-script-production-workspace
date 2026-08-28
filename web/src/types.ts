@@ -1,33 +1,10 @@
-export type SuggestionStatus = "pending" | "created" | "merged" | "deferred";
-export type EntityKind = "场景" | "道具" | "视觉特效";
+export type SuggestionStatus = "pending" | "created" | "merged" | "deferred" | "adopted";
+export type EntityRelation = "stable" | "needs-review" | "split" | "kept";
 
-export interface Scene { id: number; sampleIndex: number; title: string; productionLabel: string; version: string; updated: boolean; }
-export interface Suggestion {
-  id: number;
-  type: EntityKind;
-  source: string;
-  value: string;
-  detail: string;
-  sourceSampleIndex: number;
-  mergeTargetId: string;
-  status: SuggestionStatus;
-}
-export interface ProductionEntity {
-  id: string;
-  name: string;
-  kind: EntityKind;
-  metadata: string;
-  sourceSampleIndices: number[];
-  relation: "stable" | "needs-review" | "split" | "kept";
-  taskMaterialReady: boolean;
-}
-export interface TaskRow {
-  id: string;
-  entityId: string;
-  department: string;
-  task: string;
-  sourceSampleIndices: number[];
-  content: string;
-  priority: "高" | "中";
-  done: boolean;
-}
+export interface Scene { id: string; versionId: string; sampleIndex: number; title: string; sourceAct?: string; sourceScene?: string; sourceUrl?: string; sourceLocator?: string; text: string; englishExcerpt?: string; isDemoAdaptation: boolean; }
+export interface Suggestion { id: string; type: string; taxonomy: string; source: string; value: string; detail: string; sourceSceneId: string; mergeTargetId?: string; status: SuggestionStatus; }
+export interface ProductionEntity { id: string; name: string; kind: string; metadata: string; sourceSceneIds: string[]; relation: EntityRelation; taskMaterialReady: boolean; }
+export interface TaskRow { id: string; entityId: string; department: string; task: string; sourceSceneIds: string[]; content: string; priority: "高" | "中"; done: boolean; versionLabel: string; }
+export interface VersionOption { id: string; label: string; isDemoAdaptation: boolean; }
+export interface VersionImpact { id: string; sceneId: string; entityId: string; taskDraftIds: string[]; summary: string; status: "pending" | "kept" | "merged" | "created_new" | "dismissed"; }
+export interface ImportedScene { id: string; sampleIndex: number; title: string; text: string; }
