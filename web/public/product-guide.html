@@ -3,31 +3,580 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>产品手册｜剧本生产台</title>
+    <meta name="description" content="AI 剧本生产工作台完整面试官产品手册" />
+    <title>完整产品手册｜AI 剧本生产台</title>
     <style>
-      :root{--ink:#24312a;--muted:#647069;--line:#d7ddda;--green:#145b43;--canvas:#f5f7f5}*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.7 Inter,"PingFang SC","Noto Sans SC",sans-serif}a{color:var(--green);text-underline-offset:3px}.top{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;min-height:62px;padding:0 max(18px,calc((100vw - 1080px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.97)}.brand{font:600 18px/1 Georgia,"Songti SC",serif;letter-spacing:.08em}.back{display:inline-flex;align-items:center;min-height:34px;padding:0 11px;border:1px solid #c7d5cd;border-radius:4px;background:#f6faf7;font-size:13px;text-decoration:none}.page{width:min(960px,calc(100% - 32px));margin:42px auto 70px}.intro{padding:0 0 28px;border-bottom:1px solid var(--line)}h1,h2{font-family:Georgia,"Songti SC","Noto Serif SC",serif}h1{margin:0 0 12px;font-size:34px;line-height:1.25;letter-spacing:.02em}h2{margin:0 0 11px;font-size:22px;line-height:1.35}p{margin:0;color:var(--muted)}.lead{max-width:680px;font-size:17px;line-height:1.75;color:#405048}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}.section{padding:21px;border:1px solid var(--line);border-radius:7px;background:#fff}.section.wide{grid-column:1/-1}.section p+ p,.section ul,.section ol{margin-top:10px}.section ul,.section ol{margin-bottom:0;padding-left:20px;color:var(--muted)}.section li+li{margin-top:5px}.flow{display:grid;gap:8px;counter-reset:flow}.flow li{display:flex;gap:10px;list-style:none}.flow li::before{counter-increment:flow;content:counter(flow);display:grid;place-items:center;flex:0 0 22px;height:22px;border-radius:50%;background:#e8f1eb;color:var(--green);font-size:12px;font-weight:700}.status{display:grid;grid-template-columns:1fr 1fr;gap:14px}.status strong{display:block;margin-bottom:6px;color:var(--green)}.placeholder{margin-top:26px;padding:13px 15px;border-left:3px solid #9aa59d;background:#eef2ef;color:#59645d;font-size:13px}@media(max-width:680px){.top{padding:0 14px}.page{width:min(100% - 20px,960px);margin:27px auto 42px}.grid,.status{grid-template-columns:1fr}h1{font-size:29px}.section{padding:17px}.section.wide{grid-column:auto}}
+      :root{--ink:#203029;--muted:#65716a;--line:#d8dfdb;--soft:#edf2ef;--paper:#fff;--canvas:#f5f7f5;--green:#145b43;--green-2:#0f4634;--blue:#315d9a;--warn:#9c5d08}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.78 Inter,"PingFang SC","Noto Sans SC",sans-serif}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;min-height:62px;padding:0 max(18px,calc((100vw - 1280px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}.brand{font:600 18px/1 Georgia,"Songti SC",serif;letter-spacing:.08em}.top-actions{display:flex;align-items:center;gap:10px}.top-actions a{display:inline-flex;align-items:center;min-height:34px;padding:0 11px;border:1px solid #c8d4cd;border-radius:5px;color:var(--green);font-size:13px;text-decoration:none}.top-actions a:first-child{border-color:var(--green);background:var(--green);color:#fff}.layout{display:grid;grid-template-columns:270px minmax(0,900px);gap:46px;width:min(1260px,calc(100% - 36px));margin:0 auto;padding:38px 0 80px}.toc-shell{position:sticky;top:92px;align-self:start;max-height:calc(100vh - 116px);overflow:auto;padding:20px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.88)}.eyebrow{margin:0 0 6px;color:var(--green);font-size:11px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.toc-title{margin-bottom:12px;font:600 22px/1.3 Georgia,"Songti SC",serif}#TOC ul{margin:0;padding:0;list-style:none}#TOC ul ul{padding-left:13px;margin-top:4px}#TOC li{margin:2px 0}#TOC a{display:block;padding:5px 7px;border-radius:4px;color:#59665f;font-size:12px;line-height:1.45;text-decoration:none}#TOC a:hover,#TOC a:focus-visible{background:#eaf1ed;color:var(--green)}.toc-note{margin:16px 0 0;padding-top:13px;border-top:1px solid var(--line);color:#7a847e;font-size:11px;line-height:1.55}.content{min-width:0}.manual{padding:44px 56px 58px;border:1px solid var(--line);border-radius:10px;background:var(--paper);box-shadow:0 18px 50px rgba(27,48,38,.05)}.manual>h1:first-child{margin-top:0;font-size:38px}.manual h1,.manual h2,.manual h3,.manual h4{scroll-margin-top:82px;font-family:Georgia,"Songti SC","Noto Serif SC",serif;line-height:1.35}.manual h1{margin:0 0 18px;font-size:34px}.manual h2{margin:50px 0 17px;padding-top:8px;border-top:1px solid var(--line);font-size:27px}.manual h3{margin:31px 0 12px;font-size:21px}.manual h4{margin:24px 0 10px;font-size:17px}.manual p{margin:11px 0;color:#445149}.manual strong{color:#27372f}.manual a{color:var(--green);text-underline-offset:3px}.manual blockquote{margin:20px 0 30px;padding:16px 18px;border-left:4px solid var(--green);background:#eef5f1;color:#3e5549}.manual blockquote p{margin:2px 0;color:inherit}.manual ul,.manual ol{padding-left:24px}.manual li{margin:6px 0}.manual hr{border:0;border-top:1px solid var(--line);margin:38px 0}.manual code{padding:.15em .38em;border-radius:4px;background:#eef2ef;color:#294f3d;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}.manual pre{overflow:auto;padding:16px;border-radius:7px;background:#17251f;color:#eef8f1}.manual pre code{padding:0;background:none;color:inherit}.manual table{display:block;width:100%;overflow-x:auto;margin:18px 0 26px;border-collapse:collapse;font-size:13px}.manual th,.manual td{min-width:140px;padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}.manual th{background:#eef3f0;color:#2d4237;font-weight:700}.manual tr:nth-child(even) td{background:#fafcfb}.manual input[type=checkbox]{margin-right:7px;accent-color:var(--green)}.manual h2:nth-of-type(7)+p,.manual h2:nth-of-type(7)+ul{color:#414d47}.footer{padding:0 18px 44px;text-align:center;color:#7a847e;font-size:12px}.footer a{color:var(--green)}@media(max-width:900px){.layout{grid-template-columns:1fr;gap:20px;padding-top:20px}.toc-shell{position:static;max-height:320px}.manual{padding:31px 26px 44px}.manual>h1:first-child{font-size:31px}.manual h2{font-size:23px}.top-actions a:nth-child(2){display:none}}@media(max-width:560px){.topbar{min-height:56px;padding:0 12px}.brand{font-size:15px}.top-actions{gap:6px}.top-actions a{min-height:31px;padding:0 8px;font-size:12px}.layout{width:min(100% - 18px,1260px)}.manual{padding:25px 17px 38px;border-radius:7px}.manual>h1:first-child{font-size:27px}.manual h2{margin-top:40px}.manual th,.manual td{min-width:124px;padding:8px 9px}}
     </style>
   </head>
   <body>
-    <header class="top"><strong class="brand">剧本生产台</strong><a class="back" href="/">返回工作台</a></header>
-    <main class="page">
-      <section class="intro"><h1>产品手册</h1><p class="lead">面向制作统筹与部门主管的剧本拆解工作台：让每条制作判断都能回到来源原文、经过人工审阅，并以未下发的部门材料草稿收束。</p></section>
-      <div class="grid">
-        <section class="section"><h2>产品定位与用户</h2><p>把剧本中的人物、场景、道具、声音与制作要求组织为可追溯的生产实体。核心用户是制作统筹、制片、部门主管与需要共同审阅剧本文本的创作团队。</p></section>
-        <section class="section"><h2>三分钟主链</h2><ol class="flow"><li>导入或阅读当前版本完整剧本。</li><li>顺序分析全部处理单元并查看模式与证据。</li><li>编辑、采用、关联或忽略建议。</li><li>从稳定实体生成部门任务材料草稿。</li></ol></section>
-        <section class="section"><h2>页面结构</h2><p>左侧是处理单元与进度；中间常驻完整版本文本；右侧审阅建议、实体与任务；底部按部门维护未下发的任务材料。</p></section>
-        <section class="section"><h2>AI Workflow 与 fallback</h2><p>点击分析后，浏览器按单元调用同源接口并展示等待、请求、DeepSeek 已校验、fallback、失败或取消。正式 fixture 在 fallback 时使用同单元确定性审阅基线，不冒充 DeepSeek。</p></section>
-        <section class="section"><h2>HITL 与证据</h2><p>每条建议可定位逐字来源，并允许人工改名、采用为实体、关联已有实体或忽略。待分类仅表示尚未归入标准制作分类，必须由人工调整。</p></section>
-        <section class="section"><h2>实体与任务草稿</h2><p>实体保留规范类型、跨单元来源与关系审阅状态。任务标题、制作要求、优先级、部门和材料成熟度可本地编辑；来源、生成版本与“未下发”保持为只读审计事实。</p></section>
-        <section class="section wide"><h2>版本化编辑规划</h2><p>当前阅读区不直接修改正文。未来保存编辑会创建新版本、记录修改，并要求重新分析受影响单元；证据 offset、实体来源与任务快照会随版本保持可追溯。当前 Demo 尚未开放该能力。</p></section>
-        <section class="section"><h2>已实现</h2><p>本地 TXT/粘贴导入、完整文本阅读、证据跳转、逐单元顺序请求与可见模式、建议人工处理、实体、可编辑未下发任务草稿、V2 关系审阅与类型筛选。</p></section>
-        <section class="section"><h2>未实现</h2><p>真实任务派发/撤回、反向剧本修改提案、通用版本 diff/继承、数据库持久化、上传解析与完整协作权限模型均不在本次 Demo 范围。</p></section>
-        <section class="section wide"><h2>当前已知缺陷</h2><p>线上已接入真实 DeepSeek 请求，但模型输出仍可能未通过结构与逐字证据校验。此时工作台会明确显示 fallback 及 <code>INVALID_MODEL_OUTPUT</code>，继续使用同一处理单元的预置审阅数据完成产品链路；本 Demo 不隐藏该问题，也不把 fallback 说成模型成功。</p></section>
-        <section class="section"><h2>演示步骤</h2><ol><li>从左侧选择处理单元，查看中间原文。</li><li>在右侧按中文类型筛选建议并点来源证据。</li><li>编辑或采用一条建议，再到“实体与任务”生成材料。</li><li>在底部调整任务部门或材料审阅状态；它始终显示为未下发。</li></ol></section>
-        <section class="section"><h2>安全与数据边界</h2><p>导入文本先在当前浏览器处理；只有点击分析才向同源 AI 接口提交当前处理单元。Demo 不读取或展示密钥，不执行真实部门下发，也不把 fallback 伪装为模型结果。</p></section>
-        <section class="section wide"><h2>路线图</h2><p>下一步聚焦版本化编辑与影响审阅、可配置部门模板、真实的任务派发与撤回、持久化审计记录，以及基于团队权限的协作流程。</p></section>
-      </div>
-      <p class="placeholder">公开演示：<a href="https://ai-script-production-workspace.ppfruit.chatgpt.site">ai-script-production-workspace.ppfruit.chatgpt.site</a> · <a href="https://github.com/MrPPFruit/ai-script-production-workspace">GitHub 源码与 Markdown 手册</a></p>
-    </main>
+    <header class="topbar"><strong class="brand">剧本生产台 · 完整产品手册</strong><nav class="top-actions" aria-label="手册导航"><a href="/">返回工作台</a><a href="https://github.com/MrPPFruit/ai-script-production-workspace">GitHub</a></nav></header>
+    <div class="layout">
+      <aside class="toc-shell" aria-label="产品手册目录"><p class="eyebrow">Interview product guide</p><div class="toc-title">目录</div><ul>
+<li><a href="#ai-剧本生产工作台面试官产品手册"
+id="toc-ai-剧本生产工作台面试官产品手册">AI
+剧本生产工作台｜面试官产品手册</a>
+<ul>
+<li><a href="#1-一句话定位" id="toc-1-一句话定位">1. 一句话定位</a>
+<ul>
+<li><a href="#目标用户与-jtbd" id="toc-目标用户与-jtbd">目标用户与
+JTBD</a></li>
+<li><a href="#录音需求如何转成产品"
+id="toc-录音需求如何转成产品">录音需求如何转成产品</a></li>
+</ul></li>
+<li><a href="#2-面试官网页的信息架构" id="toc-2-面试官网页的信息架构">2.
+面试官网页的信息架构</a></li>
+<li><a href="#3-从剧本到部门材料的完整-workflow"
+id="toc-3-从剧本到部门材料的完整-workflow">3. 从剧本到部门材料的完整
+Workflow</a></li>
+<li><a href="#4-建议类型筛选与人工边界"
+id="toc-4-建议类型筛选与人工边界">4. 建议类型、筛选与人工边界</a>
+<ul>
+<li><a href="#类型合同" id="toc-类型合同">类型合同</a></li>
+<li><a href="#人工审阅" id="toc-人工审阅">人工审阅</a></li>
+</ul></li>
+<li><a href="#5-实体与任务材料为什么分层"
+id="toc-5-实体与任务材料为什么分层">5. 实体与任务材料为什么分层</a></li>
+<li><a href="#6-剧本版本化编辑正确流程与本轮边界"
+id="toc-6-剧本版本化编辑正确流程与本轮边界">6.
+剧本版本化编辑：正确流程与本轮边界</a></li>
+<li><a href="#7-当前完成度" id="toc-7-当前完成度">7. 当前完成度</a>
+<ul>
+<li><a href="#已实现于本地代码基线"
+id="toc-已实现于本地代码基线">已实现于本地代码基线</a></li>
+<li><a href="#演示保障" id="toc-演示保障">演示保障</a></li>
+<li><a href="#明确未实现或未完成验收"
+id="toc-明确未实现或未完成验收">明确未实现或未完成验收</a></li>
+</ul></li>
+<li><a href="#8-三分钟演示脚本" id="toc-8-三分钟演示脚本">8.
+三分钟演示脚本</a></li>
+<li><a href="#9-面试官可能追问" id="toc-9-面试官可能追问">9.
+面试官可能追问</a>
+<ul>
+<li><a href="#为什么-ai-结果还要人工审阅"
+id="toc-为什么-ai-结果还要人工审阅">为什么 AI
+结果还要人工审阅？</a></li>
+<li><a href="#extractor-算-agent-吗"
+id="toc-extractor-算-agent-吗">Extractor 算 Agent 吗？</a></li>
+<li><a href="#为什么-fallback-不能算模型能力"
+id="toc-为什么-fallback-不能算模型能力">为什么 fallback
+不能算模型能力？</a></li>
+<li><a href="#为什么任务不能点下发"
+id="toc-为什么任务不能点下发">为什么任务不能点“下发”？</a></li>
+<li><a href="#为什么-v2-不自动继承所有关系"
+id="toc-为什么-v2-不自动继承所有关系">为什么 V2
+不自动继承所有关系？</a></li>
+<li><a href="#为什么不直接编辑旧剧本"
+id="toc-为什么不直接编辑旧剧本">为什么不直接编辑旧剧本？</a></li>
+</ul></li>
+<li><a href="#10-验收证据" id="toc-10-验收证据">10. 验收证据</a></li>
+<li><a href="#11-技术与安全边界" id="toc-11-技术与安全边界">11.
+技术与安全边界</a>
+<ul>
+<li><a href="#交付链接" id="toc-交付链接">交付链接</a></li>
+</ul></li>
+<li><a href="#12-最终交付清单" id="toc-12-最终交付清单">12.
+最终交付清单</a></li>
+<li><a href="#13-后续路线图" id="toc-13-后续路线图">13. 后续路线图</a>
+<ul>
+<li><a href="#p1把可信-demo-推进到可持续试用"
+id="toc-p1把可信-demo-推进到可持续试用">P1：把可信 Demo
+推进到可持续试用</a></li>
+<li><a href="#p2扩展到真实制作协作"
+id="toc-p2扩展到真实制作协作">P2：扩展到真实制作协作</a></li>
+</ul></li>
+</ul></li>
+</ul><p class="toc-note">本页完整呈现 Markdown 产品说明，不删减 AI Workflow、状态边界、验收证据与路线图。</p></aside>
+      <main class="content"><article class="manual"><h1
+id="ai-剧本生产工作台面试官产品手册">AI
+剧本生产工作台｜面试官产品手册</h1>
+<blockquote>
+<p>面试 Demo：<strong>《雷雨》·面试 Demo 导入版本（第四幕）</strong>
+本手册是面试官入口，说明产品价值、可演示链路与真实完成度。详细产品合同见
+<a href="https://github.com/MrPPFruit/ai-script-production-workspace/blob/main/docs/product/PRODUCT_SPEC.md">PRODUCT_SPEC.md</a>，范围决策见 <a
+href="https://github.com/MrPPFruit/ai-script-production-workspace/blob/main/docs/product/SCOPE_DECISIONS.md">SCOPE_DECISIONS.md</a>，逐秒演示口径见 <a
+href="https://github.com/MrPPFruit/ai-script-production-workspace/blob/main/docs/product/DEMO_SCRIPT.md">DEMO_SCRIPT.md</a>。</p>
+</blockquote>
+<h2 id="1-一句话定位">1. 一句话定位</h2>
+<p>面向制片统筹、执行制片和资产统筹，把连续剧本中的制作线索转为<strong>带原文证据、经人工确认的稳定生产实体和未下发部门任务材料草稿</strong>。</p>
+<h3 id="目标用户与-jtbd">目标用户与 JTBD</h3>
+<table>
+<thead>
+<tr>
+<th>用户</th>
+<th>核心任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>制片统筹（主用户）</td>
+<td>从一版剧本中统一整理人物、场景、道具、声音、VFX
+等制作对象和跨部门材料</td>
+</tr>
+<tr>
+<td>执行制片</td>
+<td>核验制作要求、来源、优先级和版本影响</td>
+</tr>
+<tr>
+<td>资产统筹</td>
+<td>复用稳定实体，避免同一生产对象被重复建档</td>
+</tr>
+</tbody>
+</table>
+<p>JTBD：当我接到一版剧本并开始制作准备时，我希望 AI
+先找出带精确原文证据的生产建议，再由我编辑、采用、关联或忽略，最后形成可追溯的实体和部门材料；剧本变化时，系统应显式告诉我哪些关系需要复核，而不是静默覆盖。</p>
+<h3 id="录音需求如何转成产品">录音需求如何转成产品</h3>
+<p>录音里的“场次、镜头、道具等可以调整、建实体并挂
+Metadata”，被收敛为一条可验收链：<strong>来源文本 → AI 建议 → 人工决策 →
+稳定实体 → 部门材料草稿</strong>。录音举过“10 场变 11
+场”的插入/切分例子，但没有规定拆分算法、固定数量或本轮必须做镜头级能力。因此
+Demo
+只用一次处理单元切分展示关系复核，不把镜头拆分或通用自动继承包装成已完成。</p>
+<h2 id="2-面试官网页的信息架构">2. 面试官网页的信息架构</h2>
+<p>页面采用三区工作台，并在底部保留任务台账：</p>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th>面试官看到什么</th>
+<th>用户动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左区：处理单元与进度</td>
+<td>第四幕本次导入版本的 3 或 4 个处理单元、逐单元状态</td>
+<td>点击锚点、观察顺序处理</td>
+</tr>
+<tr>
+<td>中区：完整文本</td>
+<td>本次导入的第四幕连续文本、来源说明、evidence 高亮</td>
+<td>连续阅读、从建议回到原文</td>
+</tr>
+<tr>
+<td>右区：建议 / 实体</td>
+<td>AI 建议、模式、证据、人审动作；稳定实体与版本关系</td>
+<td>编辑、采用、关联、忽略、复核</td>
+</tr>
+<tr>
+<td>底部：任务台账</td>
+<td>按部门组织的任务材料草稿，明确“未下发”</td>
+<td>修改材料内容与成熟度</td>
+</tr>
+</tbody>
+</table>
+<p>“完整文本”只指本次导入的第四幕连续片段，不冒充整部《雷雨》。第四幕是来源章节；3–4
+个处理单元只是 API 限长、进度和失败隔离的执行边界；每条建议再用更细的
+quote/range 锚定原文。</p>
+<h2 id="3-从剧本到部门材料的完整-workflow">3. 从剧本到部门材料的完整
+Workflow</h2>
+<ol type="1">
+<li><strong>导入与阅读</strong>：加载《雷雨》第四幕本次连续片段。正文在中区持续可见，左侧处理单元只作为导航锚点，不替换全文。</li>
+<li><strong>准备队列</strong>：V1 配置 3 个、V2 配置 4
+个处理单元。系统按显示顺序建立队列，不宣称它们是原作场次。</li>
+<li><strong>DeepSeek 顺序处理</strong>：用户点击“使用 DeepSeek
+分析全部处理单元”后，前一单元结束才发送下一单元。真实 DeepSeek
+是正式主链。</li>
+<li><strong>服务端校验</strong>：返回内容先经过结构、taxonomy、字段和
+evidence 校验；quote 必须是当前单元的逐字子串，range
+必须匹配。系统不能伪造“正在识别角色/道具”等模型内部阶段。</li>
+<li><strong>模式披露</strong>：校验通过的上游结果以
+<code>mode=deepseek</code>
+进入待审；缺密钥、超时、上游错误或无效输出时，以对应原因进入
+<code>mode=fallback</code>。fallback
+使用同一处理单元的确定性建议，只保障演示链，不代表 DeepSeek 成功。</li>
+<li><strong>人工审阅</strong>：用户查看证据、编辑建议，并选择采用为新实体、关联既有实体或忽略。点击证据只滚动并高亮原文，不触发
+AI 或写入。</li>
+<li><strong>稳定实体</strong>：只有人工采用或关联后才形成稳定生产对象及来源关系；文本片段、建议和实体不是同一层对象。</li>
+<li><strong>部门任务材料</strong>：从稳定实体生成角色、场景、道具、声音、VFX
+等部门材料草稿。草稿保留实体、来源和版本快照，始终显示“未下发”。</li>
+<li><strong>V2 关系复核</strong>：V2
+用一次处理单元插入/切分展示受影响关系。用户决定补入新来源或保留既有关联；系统不静默覆盖
+V1，也不宣称通用自动继承。</li>
+</ol>
+<h2 id="4-建议类型筛选与人工边界">4. 建议类型、筛选与人工边界</h2>
+<h3 id="类型合同">类型合同</h3>
+<table>
+<thead>
+<tr>
+<th>分组</th>
+<th>API 值 → UI 文案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人物</td>
+<td><code>character</code> → 角色；<code>cast</code> → 人物关系</td>
+</tr>
+<tr>
+<td>场景与资产</td>
+<td><code>location</code> → 场地；<code>set</code> →
+置景；<code>prop</code> → 道具；<code>costume</code> →
+服装；<code>makeup_hair</code> → 妆发；<code>wardrobe</code> →
+服装管理；<code>vehicle</code> → 载具；<code>animal</code> → 动物</td>
+</tr>
+<tr>
+<td>拍摄与效果</td>
+<td><code>vfx</code> → 视觉特效；<code>sfx</code> →
+现场特效；<code>stunt</code> → 动作特技；<code>sound</code> →
+声音；<code>art</code> → 美术；<code>camera</code> →
+摄影；<code>lighting</code> → 灯光</td>
+</tr>
+<tr>
+<td>扩展</td>
+<td><code>other</code> 仅为 API 扩展值，UI 统一显示“待分类”；默认正式
+fixture 不得使用</td>
+</tr>
+</tbody>
+</table>
+<p>筛选的产品合同是：建议区提供“全部 +
+各中文类型”的单选筛选，只过滤当前处理单元的当前建议批次，不改变建议、实体或任务。类型数量按当前批次实时计算。<code>cast</code>
+不得显示英文原值，<code>other</code> 不得被包装成正式业务类型。</p>
+<p>默认 fixture 的分类修正已在 <code>334b0bd</code> 验收：3
+条人物关系建议与 2 个实体使用 <code>cast</code>，默认数据不再含
+<code>other</code>。类型筛选以及 <code>cast</code>/<code>other</code> 的
+UI 中文映射也已完成集成与浏览器验收。</p>
+<h3 id="人工审阅">人工审阅</h3>
+<ul>
+<li><strong>编辑</strong>：修正建议名称或制作表述，不改变其来源证据。</li>
+<li><strong>采用新实体</strong>：把编辑后的建议固化为新的稳定生产对象。</li>
+<li><strong>关联已有实体</strong>：复用既有
+entityId，并补充来源关系，避免重复建档。</li>
+<li><strong>忽略</strong>：保留审阅决定，但不生成实体或任务。</li>
+</ul>
+<p>AI
+只提供建议。它不能自动建立实体、替换人工决定、派发任务或修改剧本文本。</p>
+<h2 id="5-实体与任务材料为什么分层">5. 实体与任务材料为什么分层</h2>
+<p>实体是跨版本、跨处理单元可复用的生产对象；任务材料是某一版本和来源上下文下给部门准备的草稿。一个实体可以有多条
+evidence，也可以生成多份部门材料，不能把每个文本片段直接变成实体。</p>
+<table>
+<thead>
+<tr>
+<th>任务字段</th>
+<th>是否可改</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>任务标题</td>
+<td>可改</td>
+<td>需要转成部门可执行语言</td>
+</tr>
+<tr>
+<td>制作要求</td>
+<td>可改</td>
+<td>需要补充规格、限制和交付说明</td>
+</tr>
+<tr>
+<td>部门</td>
+<td>可改</td>
+<td>归属可能在制片判断后调整</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>可改</td>
+<td>随制作风险和排期变化</td>
+</tr>
+<tr>
+<td>材料成熟度</td>
+<td>可改</td>
+<td>可在“草稿 / 待复核 / 已确认”间推进</td>
+</tr>
+<tr>
+<td>来源</td>
+<td>不可改</td>
+<td>是生成时的审计快照；改来源应回到实体关系复核</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>不可改</td>
+<td>防止草稿被误挂到另一 ScriptVersion</td>
+</tr>
+<tr>
+<td>未下发</td>
+<td>不可改</td>
+<td>本 Demo
+没有收件人、权限、通知、回执和撤回能力，不能伪造派发状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-剧本版本化编辑正确流程与本轮边界">6.
+剧本版本化编辑：正确流程与本轮边界</h2>
+<p>完整产品不应直接在旧文本上覆盖保存，正确流程是：</p>
+<blockquote>
+<p>编辑提案 → 创建新 ScriptVersion → 记录文本 diff →
+只重新分析受影响处理单元 → 人工复核新建议与实体来源关系</p>
+</blockquote>
+<p>这样才能保留旧版本、旧人工决定和旧任务快照。本轮只要求在 UI
+的“产品边界 /
+后续能力”中提供<strong>说明性入口和上述流程说明</strong>；它不能直接改写文本、保存新版本或触发重新分析。当前基线只有通用边界说明，尚未把完整流程呈现为独立入口，因此仍是未完成项，不能演示为可用功能。</p>
+<h2 id="7-当前完成度">7. 当前完成度</h2>
+<h3 id="已实现于本地代码基线">已实现于本地代码基线</h3>
+<ul>
+<li>《雷雨》第四幕 V1 三个、V2 四个处理单元及连续全文阅读。</li>
+<li>本地 TXT 导入、处理单元导航、精确证据滚动与高亮。</li>
+<li>单次 DeepSeek API、客户端调用、严格顺序
+orchestrator，以及结构/evidence 校验合同。</li>
+<li>逐单元等待、请求、DeepSeek 待审、fallback
+待审、失败和取消后续请求状态。</li>
+<li>建议编辑、采用新实体、关联既有实体、忽略。</li>
+<li>稳定实体、来源关系、未下发任务材料和可编辑任务字段。</li>
+<li>V1 → V2 一次处理单元切分影响及人工关系复核。</li>
+<li>默认 fixture 已移除 <code>other</code>，人物关系数据已改用
+<code>cast</code>，并已与类型筛选 UI 集成验收。</li>
+</ul>
+<p>“代码存在”不等于“正式 Demo 真链已验收”。线上服务端已配置 DeepSeek
+并完成真实请求烟测；当前已知缺陷是模型返回内容仍可能未通过结构/证据校验，页面会明确显示
+<code>fallback · INVALID_MODEL_OUTPUT</code>，不隐藏也不冒充成功。整版
+3–4 单元稳定 <code>deepseek</code> 结果仍待后续优化。</p>
+<h3 id="演示保障">演示保障</h3>
+<ul>
+<li>每个正式处理单元都有确定性预览 / fallback 数据。</li>
+<li>fallback 明示 mode、reason 和 requestId，不冒充 DeepSeek。</li>
+<li>导入文本先留在浏览器；只有用户主动分析时才逐单元发送到同源
+API。</li>
+<li>DeepSeek
+凭证只允许存在于服务端环境，不进入前端、仓库、文档或截图。</li>
+<li>无法精确定位 quote 时显示错误，不做猜测性高亮。</li>
+</ul>
+<h3 id="明确未实现或未完成验收">明确未实现或未完成验收</h3>
+<ul>
+<li>正式部署环境中稳定通过结构校验的 DeepSeek
+全单元结果；当前真实请求可达，但烟测返回
+<code>INVALID_MODEL_OUTPUT</code> 并诚实 fallback。</li>
+<li>不可变 AiRun / SuggestionBatch 历史，以及“重新分析本单元 /
+全部”的历史 UI。</li>
+<li>剧本编辑提案、新 ScriptVersion、diff
+和受影响单元重分析；当前只规划说明性入口。</li>
+<li>生产级持久化、多用户权限、审计、真实任务派发、通知、回执、更新和撤回。</li>
+<li>镜头级拆分、自动处理单元算法、任意长剧本批处理、通用 diff /
+自动关系继承。</li>
+<li>中国大陆无 VPN 的现场可达性仍需用户在目标网络实测；VPN
+或普通国际网络不受此项影响。</li>
+</ul>
+<h2 id="8-三分钟演示脚本">8. 三分钟演示脚本</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>点击顺序</th>
+<th>讲解话术</th>
+<th>验收观察点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00–0:20</td>
+<td>打开 V1，点击左侧第一个处理单元</td>
+<td>“中间是第四幕本次导入的连续文本，不是整部《雷雨》；左侧是系统处理单元，不是原作场次。”</td>
+<td>标题、全文、3 个处理单元</td>
+</tr>
+<tr>
+<td>0:20–0:45</td>
+<td>点击“使用 DeepSeek 分析全部处理单元”</td>
+<td>“系统严格顺序请求；页面只显示可证明的队列、请求与返回状态。”</td>
+<td>请求顺序、当前单元、无伪造阶段</td>
+</tr>
+<tr>
+<td>0:45–1:05</td>
+<td>查看各单元模式与结果</td>
+<td>“结构和原文证据校验后才进入待审。fallback 会显示原因，不能算
+DeepSeek 成功。”</td>
+<td>deepseek/fallback 明确分开</td>
+</tr>
+<tr>
+<td>1:05–1:30</td>
+<td>点击雷雨、枪声、灯光或触电建议的证据</td>
+<td>“建议引用逐字 quote；点击后回到全文对应高亮。”</td>
+<td>精确滚动、高亮、无猜测定位</td>
+</tr>
+<tr>
+<td>1:30–1:55</td>
+<td>编辑建议，采用为新实体或关联已有实体</td>
+<td>“AI 不写生产事实；人工动作才建立稳定对象和来源关系。”</td>
+<td>编辑结果、entityId、人审状态</td>
+</tr>
+<tr>
+<td>1:55–2:20</td>
+<td>从实体生成草稿，修改标题、要求或成熟度</td>
+<td>“这些是部门材料草稿；来源和版本锁定，且没有任何真实下发。”</td>
+<td>可编辑字段、快照、未下发</td>
+</tr>
+<tr>
+<td>2:20–2:45</td>
+<td>切换 V2，打开关系影响并处理</td>
+<td>“边界变化只提示受影响关系，由人决定重连或保留；不会静默覆盖。”</td>
+<td>4 个处理单元、待复核、人工结果</td>
+</tr>
+<tr>
+<td>2:45–3:00</td>
+<td>展开产品边界</td>
+<td>“版本化编辑、真实派发和镜头级能力都有正确产品方向，但本轮不冒充已实现。”</td>
+<td>静态边界、无死按钮</td>
+</tr>
+</tbody>
+</table>
+<p>类型筛选与中文映射已通过浏览器验收。现场若出现
+<code>INVALID_MODEL_OUTPUT</code>，直接说明“真实模型已调用，但本轮输出没有通过结构/证据合同，因此进入可见
+fallback”，再继续演示完整人审链。更细的话术见 <a
+href="https://github.com/MrPPFruit/ai-script-production-workspace/blob/main/docs/product/DEMO_SCRIPT.md">DEMO_SCRIPT.md</a>。</p>
+<h2 id="9-面试官可能追问">9. 面试官可能追问</h2>
+<h3 id="为什么-ai-结果还要人工审阅">为什么 AI 结果还要人工审阅？</h3>
+<p>生产判断不仅是文本抽取。隐含
+VFX、声音或灯光需求需要上下文，实体复用和部门归属也属于制片决策。AI
+负责缩短查找和整理时间，人工承担生产事实写入。</p>
+<h3 id="extractor-算-agent-吗">Extractor 算 Agent 吗？</h3>
+<p>不算。当前能力是受控输入输出的拆解流程。未来可选制片助理只有在调用查询、比对或建草稿工具时才算
+Agent，而且所有写入仍需确认。</p>
+<h3 id="为什么-fallback-不能算模型能力">为什么 fallback
+不能算模型能力？</h3>
+<p>fallback
+是确定性演示保障，只证明审阅链在上游不可用时仍可走通；它不证明 DeepSeek
+被调用，也不证明模型效果。</p>
+<h3 id="为什么任务不能点下发">为什么任务不能点“下发”？</h3>
+<p>真实下发需要收件人、通知、权限、回执、审计、旧任务失效、更新和撤回的一致性。只加一个按钮会制造虚假生产状态，所以本轮诚实停在未下发草稿。</p>
+<h3 id="为什么-v2-不自动继承所有关系">为什么 V2
+不自动继承所有关系？</h3>
+<p>处理单元切分只是一个受控案例。通用继承需要文本
+diff、实体匹配、冲突策略和审计；在这些合同没有建立前，显式影响加人工复核更可信。</p>
+<h3 id="为什么不直接编辑旧剧本">为什么不直接编辑旧剧本？</h3>
+<p>原地覆盖会让证据范围、AI
+建议、实体来源和任务快照同时失真。版本化编辑必须新建 ScriptVersion、记录
+diff，再重分析受影响单元。</p>
+<h2 id="10-验收证据">10. 验收证据</h2>
+<table>
+<thead>
+<tr>
+<th>结果</th>
+<th>最小证据</th>
+<th>失败反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全部单元真实顺序处理</td>
+<td>浏览器网络记录：请求数等于当前版本单元数，前一请求结束后才发下一次</td>
+<td>只有 API 单测，或漏单元却显示“全部完成”</td>
+</tr>
+<tr>
+<td>DeepSeek 与 fallback 可区分</td>
+<td>每单元 mode/reason/requestId 与页面状态一致</td>
+<td>fixture/fallback 被讲成 DeepSeek</td>
+</tr>
+<tr>
+<td>evidence 可信</td>
+<td>quote 为当前单元逐字子串，range 与全文高亮一致</td>
+<td>只有单元级来源或猜测高亮</td>
+</tr>
+<tr>
+<td>HITL 是写入边界</td>
+<td>编辑、采用、关联、忽略均有可见结果，分析本身不建实体</td>
+<td>AI 返回后实体自动出现</td>
+</tr>
+<tr>
+<td>任务草稿可信</td>
+<td>可改五类字段，来源/版本/未下发锁定</td>
+<td>页面暗示已送达或可撤回</td>
+</tr>
+<tr>
+<td>V2 不静默覆盖</td>
+<td>旧新关系对照、待复核提示和人工结果</td>
+<td>切换 V2 后旧关系无提示地变化</td>
+</tr>
+<tr>
+<td>类型合同兑现</td>
+<td>筛选可见；cast/other 中文正确；默认 fixture 无 other</td>
+<td>原始英文值泄露或默认数据依赖 other</td>
+</tr>
+</tbody>
+</table>
+<p>代码测试、typecheck、build
+只能证明技术基线，不能替代上面的真实浏览器链和产品验收。</p>
+<h2 id="11-技术与安全边界">11. 技术与安全边界</h2>
+<ul>
+<li>浏览器只调用同源
+<code>/api/ai/breakdown</code>；供应商密钥由服务端环境读取。</li>
+<li>单元文本只有在用户主动点击分析后才发送；本地导入本身不上传。</li>
+<li>服务端对
+taxonomy、evidence、字段长度和候选实体执行校验；不合格输出不得冒充
+<code>deepseek</code>。</li>
+<li>Demo 数据只用于面试展示，不声称生产级持久化、权限、审计或灾备。</li>
+<li>本手册不记录 API Key、Authorization、真实环境变量或私有正文。</li>
+</ul>
+<h3 id="交付链接">交付链接</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>链接</th>
+<th>当前状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署 Demo</td>
+<td><code>https://ai-script-production-workspace.ppfruit.chatgpt.site</code></td>
+<td>已公开发布；首页 200，同源 AI API 200</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td><code>https://github.com/MrPPFruit/ai-script-production-workspace</code></td>
+<td>公开仓库；最终推送后复核</td>
+</tr>
+<tr>
+<td>本地运行</td>
+<td><code>http://127.0.0.1:5173/</code></td>
+<td>当前本地演示入口</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-最终交付清单">12. 最终交付清单</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />默认 fixture
+分类修正已验收：人物关系使用 <code>cast</code>，默认数据不含
+<code>other</code></label></li>
+<li><label><input type="checkbox" checked="" />类型筛选与
+<code>cast</code>/<code>other</code>
+中文映射通过最终集成浏览器验收</label></li>
+<li><label><input type="checkbox"
+checked="" />官网静态产品手册页可访问，且不把未完成项显示为已完成</label></li>
+<li><label><input type="checkbox" />服务端配置 DeepSeek，完成 3/4
+单元真实顺序浏览器链，不输出凭证</label></li>
+<li><label><input type="checkbox" checked="" />fallback
+失败矩阵通过，线上烟测明确返回 mode/reason/requestId</label></li>
+<li><label><input type="checkbox" checked="" />人审、实体、任务编辑和 V2
+关系复核具备可演示入口</label></li>
+<li><label><input type="checkbox"
+checked="" />测试、typecheck、build、OpenSpec strict 和 diff check
+通过</label></li>
+<li><label><input type="checkbox" checked="" />部署 URL、GitHub URL
+与本地入口回填</label></li>
+<li><label><input
+type="checkbox" />公开仓库正文策略完成检查；私有正文和密钥未进入公开产物</label></li>
+<li><label><input
+type="checkbox" />录制或截图留存请求顺序、证据高亮、人审、任务草稿与版本影响</label></li>
+</ul>
+<h2 id="13-后续路线图">13. 后续路线图</h2>
+<h3 id="p1把可信-demo-推进到可持续试用">P1：把可信 Demo
+推进到可持续试用</h3>
+<ul>
+<li>剧本编辑提案 → 新 ScriptVersion → diff → 受影响单元重分析 →
+人工复核。</li>
+<li>不可变 AiRun、UnitRun、SuggestionBatch 和重新分析历史。</li>
+<li>持久化实体、关系和任务材料，补齐基础权限与审计。</li>
+<li>完成正式部署、GitHub 交付和可重复的 DeepSeek 真链验收。</li>
+</ul>
+<h3 id="p2扩展到真实制作协作">P2：扩展到真实制作协作</h3>
+<ul>
+<li>真实任务派发、收件人、通知、回执、更新、撤回和旧任务失效策略。</li>
+<li>多用户协作、部门视图、排期、预算与资产系统集成。</li>
+<li>自动处理单元建议、镜头级结构和任意长剧本批处理。</li>
+<li>模型质量评测、Prompt 运营、成本与供应商策略。</li>
+</ul>
+<p>P1/P2 都不是本轮已实现范围，不影响本次 Demo
+对主链的诚实验收。</p></article></main>
+    </div>
+    <footer class="footer">完整内容源：<a href="https://github.com/MrPPFruit/ai-script-production-workspace/blob/main/docs/product/INTERVIEW_PRODUCT_GUIDE.md">INTERVIEW_PRODUCT_GUIDE.md</a></footer>
   </body>
 </html>

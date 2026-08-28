@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",
-    "build": "vite build && node scripts/prepare-sites-build.mjs",
+    "build:guide": "./scripts/build-product-guide.sh",
+    "build": "npm run build:guide && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
     "test:sites": "node --test tests/sites-worker.test.mjs"
   },

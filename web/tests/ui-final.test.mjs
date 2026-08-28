@@ -21,5 +21,10 @@ test("产品手册与版本编辑边界均有真实入口和清楚说明", () =>
   assert.match(app, /href="\/product-guide\.html"/);
   assert.match(app, /保存编辑将创建新版本、记录修改并要求重新分析受影响单元；当前 Demo 暂未开放。/);
   assert.match(guide, /href="\/"/);
-  assert.match(guide, /AI Workflow 与 fallback/);
+  assert.match(guide, /从剧本到部门材料的完整\s+Workflow/);
+  assert.match(guide, /剧本版本化编辑：正确流程与本轮边界/);
+  assert.match(guide, /三分钟演示脚本/);
+  assert.match(guide, /面试官可能追问/);
+  assert.match(guide, /验收证据/);
+  assert.match(guide, /后续路线图/);
 });
