@@ -5,9 +5,14 @@ const json = (result) => new Response(JSON.stringify(result.body), { status: res
 
 export default {
   async fetch(request, env) {
-    if (request.method === "POST" && new URL(request.url).pathname === breakdownPath) {
+    const requestUrl = new URL(request.url);
+    if (request.method === "POST" && requestUrl.pathname === breakdownPath) {
       const result = await handleBreakdown({ method: request.method, body: await request.text(), apiKey: env.DEEPSEEK_API_KEY, fetchImpl: fetch, requestId: () => crypto.randomUUID() });
       return json(result);
+    }
+    if (["GET", "HEAD"].includes(request.method) && requestUrl.pathname === "/product-guide") {
+      requestUrl.pathname = "/product-guide.html";
+      return env.ASSETS.fetch(new Request(requestUrl, request));
     }
     const response = await env.ASSETS.fetch(request);
     const acceptsHtml = request.headers.get("accept")?.includes("text/html");

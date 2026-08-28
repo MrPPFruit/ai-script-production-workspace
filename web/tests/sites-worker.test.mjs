@@ -37,6 +37,21 @@ test("serves existing static assets without a fallback", async () => {
   assert.deepEqual(calls, ["/assets/app.js"]);
 });
 
+test("serves the full product guide from the extensionless public route", async () => {
+  const calls = [];
+  const response = await worker.fetch(new Request("https://example.test/product-guide"), {
+    ASSETS: {
+      fetch: async (request) => {
+        calls.push(new URL(request.url).pathname);
+        return new Response("full guide", { status: 200 });
+      },
+    },
+  });
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(calls, ["/product-guide.html"]);
+});
+
 test("falls back to index.html for an unknown app route", async () => {
   const calls = [];
   const response = await worker.fetch(
