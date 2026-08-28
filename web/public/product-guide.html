@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品手册｜剧本生产台</title>
+    <style>
+      :root{--ink:#24312a;--muted:#647069;--line:#d7ddda;--green:#145b43;--canvas:#f5f7f5}*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.7 Inter,"PingFang SC","Noto Sans SC",sans-serif}a{color:var(--green);text-underline-offset:3px}.top{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;min-height:62px;padding:0 max(18px,calc((100vw - 1080px)/2));border-bottom:1px solid var(--line);background:rgba(255,255,255,.97)}.brand{font:600 18px/1 Georgia,"Songti SC",serif;letter-spacing:.08em}.back{display:inline-flex;align-items:center;min-height:34px;padding:0 11px;border:1px solid #c7d5cd;border-radius:4px;background:#f6faf7;font-size:13px;text-decoration:none}.page{width:min(960px,calc(100% - 32px));margin:42px auto 70px}.intro{padding:0 0 28px;border-bottom:1px solid var(--line)}h1,h2{font-family:Georgia,"Songti SC","Noto Serif SC",serif}h1{margin:0 0 12px;font-size:34px;line-height:1.25;letter-spacing:.02em}h2{margin:0 0 11px;font-size:22px;line-height:1.35}p{margin:0;color:var(--muted)}.lead{max-width:680px;font-size:17px;line-height:1.75;color:#405048}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}.section{padding:21px;border:1px solid var(--line);border-radius:7px;background:#fff}.section.wide{grid-column:1/-1}.section p+ p,.section ul,.section ol{margin-top:10px}.section ul,.section ol{margin-bottom:0;padding-left:20px;color:var(--muted)}.section li+li{margin-top:5px}.flow{display:grid;gap:8px;counter-reset:flow}.flow li{display:flex;gap:10px;list-style:none}.flow li::before{counter-increment:flow;content:counter(flow);display:grid;place-items:center;flex:0 0 22px;height:22px;border-radius:50%;background:#e8f1eb;color:var(--green);font-size:12px;font-weight:700}.status{display:grid;grid-template-columns:1fr 1fr;gap:14px}.status strong{display:block;margin-bottom:6px;color:var(--green)}.placeholder{margin-top:26px;padding:13px 15px;border-left:3px solid #9aa59d;background:#eef2ef;color:#59645d;font-size:13px}@media(max-width:680px){.top{padding:0 14px}.page{width:min(100% - 20px,960px);margin:27px auto 42px}.grid,.status{grid-template-columns:1fr}h1{font-size:29px}.section{padding:17px}.section.wide{grid-column:auto}}
+    </style>
+  </head>
+  <body>
+    <header class="top"><strong class="brand">剧本生产台</strong><a class="back" href="/">返回工作台</a></header>
+    <main class="page">
+      <section class="intro"><h1>产品手册</h1><p class="lead">面向制作统筹与部门主管的剧本拆解工作台：让每条制作判断都能回到来源原文、经过人工审阅，并以未下发的部门材料草稿收束。</p></section>
+      <div class="grid">
+        <section class="section"><h2>产品定位与用户</h2><p>把剧本中的人物、场景、道具、声音与制作要求组织为可追溯的生产实体。核心用户是制作统筹、制片、部门主管与需要共同审阅剧本文本的创作团队。</p></section>
+        <section class="section"><h2>三分钟主链</h2><ol class="flow"><li>导入或阅读当前版本完整剧本。</li><li>顺序分析全部处理单元并查看模式与证据。</li><li>编辑、采用、关联或忽略建议。</li><li>从稳定实体生成部门任务材料草稿。</li></ol></section>
+        <section class="section"><h2>页面结构</h2><p>左侧是处理单元与进度；中间常驻完整版本文本；右侧审阅建议、实体与任务；底部按部门维护未下发的任务材料。</p></section>
+        <section class="section"><h2>AI Workflow 与 fallback</h2><p>点击分析后，浏览器按单元调用同源接口并展示等待、请求、DeepSeek 已校验、fallback、失败或取消。正式 fixture 在 fallback 时使用同单元确定性审阅基线，不冒充 DeepSeek。</p></section>
+        <section class="section"><h2>HITL 与证据</h2><p>每条建议可定位逐字来源，并允许人工改名、采用为实体、关联已有实体或忽略。待分类仅表示尚未归入标准制作分类，必须由人工调整。</p></section>
+        <section class="section"><h2>实体与任务草稿</h2><p>实体保留规范类型、跨单元来源与关系审阅状态。任务标题、制作要求、优先级、部门和材料成熟度可本地编辑；来源、生成版本与“未下发”保持为只读审计事实。</p></section>
+        <section class="section wide"><h2>版本化编辑规划</h2><p>当前阅读区不直接修改正文。未来保存编辑会创建新版本、记录修改，并要求重新分析受影响单元；证据 offset、实体来源与任务快照会随版本保持可追溯。当前 Demo 尚未开放该能力。</p></section>
+        <section class="section"><h2>已实现</h2><p>本地 TXT/粘贴导入、完整文本阅读、证据跳转、逐单元顺序请求与可见模式、建议人工处理、实体、可编辑未下发任务草稿、V2 关系审阅与类型筛选。</p></section>
+        <section class="section"><h2>未实现</h2><p>真实任务派发/撤回、反向剧本修改提案、通用版本 diff/继承、数据库持久化、上传解析与完整协作权限模型均不在本次 Demo 范围。</p></section>
+        <section class="section"><h2>演示步骤</h2><ol><li>从左侧选择处理单元，查看中间原文。</li><li>在右侧按中文类型筛选建议并点来源证据。</li><li>编辑或采用一条建议，再到“实体与任务”生成材料。</li><li>在底部调整任务部门或材料审阅状态；它始终显示为未下发。</li></ol></section>
+        <section class="section"><h2>安全与数据边界</h2><p>导入文本先在当前浏览器处理；只有点击分析才向同源 AI 接口提交当前处理单元。Demo 不读取或展示密钥，不执行真实部门下发，也不把 fallback 伪装为模型结果。</p></section>
+        <section class="section wide"><h2>路线图</h2><p>下一步聚焦版本化编辑与影响审阅、可配置部门模板、真实的任务派发与撤回、持久化审计记录，以及基于团队权限的协作流程。</p></section>
+      </div>
+      <p class="placeholder">公开演示链接：待最终主会话替换。</p>
+    </main>
+  </body>
+</html>

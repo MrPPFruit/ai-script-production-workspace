@@ -1,5 +1,8 @@
 import fixture from "../../fixtures/default-script.json";
 import type { ProductionEntity, Scene, Suggestion, TaskRow, VersionImpact, VersionOption } from "./types";
+import { taxonomyLabel } from "./lib/taxonomy";
+
+export { taxonomyLabel } from "./lib/taxonomy";
 
 type RawScene = { id: string; versionId: string; ordinal: number; heading: string; text: string; fullTextRange?: { start: number; end: number } };
 type RawEvidence = { id: string; sceneId: string; quote: string; range: { start: number; end: number }; kind: "explicit" | "inferred"; rationale?: string };
@@ -32,8 +35,6 @@ export function suggestionsForScene(sceneId: string): Suggestion[] {
     return { id: item.id, type: taxonomyLabel(item.taxonomy), taxonomy: item.taxonomy, source, sourceRange: evidence?.range ?? { start, end: start + source.length }, value: item.label, detail: evidence?.rationale ?? item.description ?? (evidence?.kind === "explicit" ? "原文直接支持，仍需人工决定是否采用。" : "需要人工补充制作判断。"), sourceSceneId: item.sceneId, mergeTargetId: item.proposedEntityId, status: item.status === "accepted" ? "adopted" : "pending", mode: "fixture" };
   });
 }
-
-export const taxonomyLabel = (value: string) => ({ character: "角色", vehicle: "载具", prop: "道具", costume: "服化", vfx: "视觉特效", sfx: "特技效果", sound: "声音", lighting: "灯光", set: "场景", location: "场地" }[value] ?? value);
 
 export const seedEntities: ProductionEntity[] = formalFixture.entities.map((item) => ({ id: item.id, name: item.canonicalName, kind: taxonomyLabel(item.taxonomy), taxonomy: item.taxonomy, metadata: `规范类型：${item.taxonomy}${item.aliases.length ? ` · 别名：${item.aliases.join("、")}` : ""}`, sourceSceneIds: item.sceneRefs.map((ref) => ref.sceneId), relation: formalFixture.versionImpacts.some((impact) => impact.entityId === item.id && impact.status === "pending") ? "needs-review" : "stable", taskMaterialReady: formalFixture.taskDrafts.some((task) => task.entityId === item.id) }));
 export const seedTasks: TaskRow[] = formalFixture.taskDrafts.map((item) => ({ id: item.id, entityId: item.entityId, department: item.department, task: item.title, sourceSceneIds: [item.createdFrom.sceneId], content: item.instructions, priority: item.department === "vfx" ? "高" : "中", reviewStatus: "草稿", versionLabel: item.contextSnapshot.versionLabel }));
