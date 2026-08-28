@@ -23,8 +23,8 @@ function normalize(payload, body) {
   const suggestions = payload.suggestions.map((item) => {
     if (!TAXONOMY.has(item?.taxonomy) || !text(item.label, LIMITS.field) || !KIND.has(item.evidenceKind) || !CONFIDENCE.has(item.confidence) || !Array.isArray(item.evidence) || !item.evidence.length || item.evidence.length > 3) return null;
     if (item.taxonomy === "other" && !text(item.taxonomyNote, LIMITS.field)) return null;
-    if (item.description !== undefined && !text(item.description, LIMITS.field)) return null;
-    if (item.proposedEntityId !== undefined && !entityIds.has(item.proposedEntityId)) return null;
+    if (item.description != null && item.description !== "" && !text(item.description, LIMITS.field)) return null;
+    if (item.proposedEntityId != null && item.proposedEntityId !== "" && !entityIds.has(item.proposedEntityId)) return null;
     if (item.evidenceKind === "inferred" && !text(item.rationale, 240)) return null;
     const evidence = item.evidence.map((source) => {
       if (!text(source?.quote, LIMITS.field) || source.kind !== item.evidenceKind) return null;
@@ -37,7 +37,7 @@ function normalize(payload, body) {
 }
 
 function prompt(body) {
-  return `只返回 JSON：{"suggestions":[...]}. 每条只可含 taxonomy,taxonomyNote,label,description,evidenceKind,confidence,rationale,proposedEntityId,evidence。taxonomy 必须是 ${[...TAXONOMY].join(",")}；evidence 为 [{"quote":"原文逐字片段","kind":"explicit|inferred"}]，必须来自场次原文；inferred 必须给 rationale。不得创建实体或任务。\n版本：${body.version.label}\n场次：${body.scene.heading}\n原文：${body.scene.text}\n可关联实体：${JSON.stringify(body.existingEntities)}`;
+  return `只返回 JSON 对象，不要 Markdown：{"suggestions":[{"taxonomy":"prop","label":"红灯","description":"制作部门需确认的要素","evidenceKind":"explicit","confidence":"high","evidence":[{"quote":"红灯","kind":"explicit"}]}]}。每条只可含 taxonomy,taxonomyNote,label,description,evidenceKind,confidence,rationale,proposedEntityId,evidence；可选字段没有值时必须省略，不得返回 null 或空字符串。taxonomy 必须是 ${[...TAXONOMY].join(",")}；taxonomy=other 时必须给 taxonomyNote；proposedEntityId 只有精确命中可关联实体 ID 时才可返回。evidence 为 [{"quote":"原文中连续且逐字一致的片段","kind":"explicit|inferred"}]；kind 必须与 evidenceKind 相同；inferred 必须给 rationale。不得创建实体或任务。\n版本：${body.version.label}\n场次：${body.scene.heading}\n原文：${body.scene.text}\n可关联实体：${JSON.stringify(body.existingEntities)}`;
 }
 
 export async function handleBreakdown({ method, body: rawBody, apiKey, fetchImpl, requestId }) {

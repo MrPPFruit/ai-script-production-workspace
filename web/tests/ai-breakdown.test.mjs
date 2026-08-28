@@ -72,10 +72,11 @@ test("关闭 thinking 并接受完整的 JSON 响应", async () => {
   let upstreamBody;
   const response = await withUpstream(async (_url, init) => {
     upstreamBody = JSON.parse(init.body);
-    return Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ suggestions: [validSuggestion] }) } }] });
+    return Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ suggestions: [{ ...validSuggestion, taxonomyNote: null, description: null, rationale: null, proposedEntityId: null }] }) } }] });
   }, () => invoke(request));
   assert.equal(upstreamBody.model, "deepseek-v4-flash");
   assert.deepEqual(upstreamBody.thinking, { type: "disabled" });
+  assert.match(upstreamBody.messages[0].content, /不得返回 null/);
   assert.equal(response.body.mode, "deepseek");
   assert.deepEqual(response.body.suggestions[0].evidence[0].range, { start: 6, end: 8 });
 });
