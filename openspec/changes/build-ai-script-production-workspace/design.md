@@ -1,71 +1,69 @@
 ## Context
 
-这是一个面试用的初步 Demo。录音确认的用户结果是：制片侧从剧本/场次来源建立受规范、带 Metadata 的实体，并面向部门形成任务材料；同时能看见剧本变化对场次—实体关系的影响。模型质量、真实任务派发及派发后更新均不在本次考核。
+当前唯一用户可见目标是：制片统筹在《雷雨》第四幕导入全文中导航证据，发起真实 DeepSeek 顺序处理，并将合格建议经过 HITL 转为稳定实体和未下发部门任务草稿。
 
-现有文档曾把四类 taxonomy、完整建议状态机、DeepSeek 服务端和已下发任务影响写成既定要求。它们没有录音支持，其中已下发任务影响还与 E-06 直接冲突。本设计以 SCOPE_DECISIONS.md 为范围依据。
+3–4 个处理单元是系统执行边界，不是原作场次。现有单次 API、requestBreakdown 和 processVersionScenes 已实现；App 接线、完整建议载荷、第四幕全文/evidence 联动、正式 fallback 与新版本案例仍未实现。
 
 ## Goals / Non-Goals
 
 **Goals:**
 
-- 从《暴风雨》样本第 1 项 ACT I, SCENE I 开始，使用真实 Act/Scene 来源完成三分钟主链。
-- 让建议、实体、场次关系与任务材料都能回到来源锚点。
-- 在受控 taxonomy 内容纳原文字面元素与隐含 VFX/制作判断。
-- 用稳定实体与版本化关系表达改版影响。
-- 让任务材料明确停在未下发草稿边界。
+- 官网完成第四幕全文 → DeepSeek → evidence → HITL → 实体 → 任务草稿 → 一次版本复核。
+- 只展示可证明状态，并披露 deepseek/fallback。
+- 每条建议精确锚定全文 quote/range。
+- 人工决定是唯一生产写入入口。
+- 重新分析和处理单元插入/切分不覆盖历史。
 
 **Non-Goals:**
 
-- 不实现真实收件人、部门成员、通知、送达、回执、权限、审计或下发后 revision/supersede。
-- 不实现任务撤回、下发后更新、已开工补偿或跨渠道一致性。
-- 不实现通用剧本 diff、自动实体继承、自动合并或完整行业 taxonomy。
-- 不实现实时模型、供应商回退、模型质量评测或 Agent 工具调用。
-- 不实现登录、多租户、持久化、完整排期、预算或生产级项目管理。
+- 不实现自动处理单元拆分、镜头级拆分、通用 diff 或自动继承。
+- 不实现任意剧本生产级批处理、真实任务派发或模型质量评测。
+- 不重命名现有 API scene 字段；只在产品适配层映射。
+- 正文加载不依赖公开仓库；是否入库由最终交付阶段单独决定。
 
 ## Decisions
 
-1. **确定性《暴风雨》数据是唯一验收路径。** V1 使用可核验公版英文短场次及项目自译中文；V2 明确为项目内演示改编版，把 ACT III, SCENE III 拆成 III-A/III-B 并加入实时合成宴席动作，以形成真实文本与场次关系变化。不得使用未核验第三方中文译本。
-2. **真实 Act/Scene 是唯一场次标识。** 正式 Demo 从样本第 1 项 ACT I, SCENE I 开始；不得保留旧原创剧本名、虚构地点或任意占位编号。
-3. **项目受控 taxonomy，而非封闭四类枚举。** Demo 覆盖角色、场景、道具、VFX，以证明部门链路；类型由项目预设，未来可扩展。
-4. **来源锚点 + 制作判断取代完整双标签状态机。** 每条建议都有原文来源；非字面需求再显示制作判断。这是服务隐含 VFX 的最小可核验边界。
-5. **采用/关联是唯一实体写入入口。** 用户可调整建议后采用为新实体、关联到既有实体或忽略。没有证据支持的确认/拒绝/合并完整状态机不进入 acceptance。
-6. **稳定实体与版本化关系分离。** ProductionEntity 使用稳定 ID；SceneEntityRelation 按剧本版本记录来源和关联，V2 主要改变关系而非静默重建实体。
-7. **任务材料是快照，不是派发对象。** TaskMaterialDraft 引用实体并保存创建时的场次、版本、来源摘要、制作要求和可选准备窗口。状态仅为草稿/需复核。
-8. **版本影响使用确定性影响数据。** 只需一个 V2 文本/场次变化案例和一次人工关系决策；草稿保持不变并显示非写入式复核提示。
-9. **三个低成本增强复用同一数据。** Metadata 缺口提示、跨场次来源跳转、部门分组/内联数量不新增 capability 或独立页面。
-10. **视觉方向已经解决。** 采用 C 的文档工作台与生产台账融合，并吸收 A 的建议审阅清晰度；任务材料可以是同屏区域或现有视图，不引入新导航体系。
-11. **技术路径保持最小。** 现有 React/Vite/TypeScript 与前端确定性状态足以证明链路；不为本次新增模型服务、数据库或消息基础设施。
-
-## Trust Boundaries and States
-
-- Suggestion 不是生产事实；只有显式采用/关联才改变实体或关系。
-- ProductionEntity 是稳定口径；SceneEntityRelation 承担版本差异。
-- TaskMaterialDraft 永远不表示已送达；目标部门只是材料面向对象，不是账号收件人。
-- VersionImpact 在用户决策前只读，不得改写 V1 关系或草稿。
-- 演示数据必须持续显示为模拟/确定性数据。
+1. **内容边界。** 标题固定为《雷雨》·面试 Demo 导入版本（第四幕）；全文只表示本次导入第四幕，不代表整部原作。
+2. **最小来源层。** SourceSection=第四幕；AnalysisUnit=3–4 个系统处理单元；EvidenceSpan=精确 quote/range；实体通过关系引用这些来源，不直接由文本片段生成。
+3. **兼容现有 API。** analysisUnitId/title/text 映射到 scene.id/heading/text；sourceSection 由客户端导入上下文和 SuggestionBatch 持有。
+4. **顺序 DeepSeek。** 请求数等于实际处理单元数；前一单元返回后才请求下一单元。
+5. **诚实状态。** 只显示等待、请求中、DeepSeek 已校验待审、fallback 待审或失败，不伪造模型内部阶段。
+6. **精确 evidence。** 服务端验证单元内 quote/range，客户端映射到第四幕全文范围；点击建议只导航和高亮。
+7. **HITL。** 人工编辑、采用新实体、关联既有或忽略；AI 不自动写实体、关系或任务。
+8. **任务草稿。** 保存实体、版本、来源证据和制作要求快照，始终未下发。
+9. **版本案例。** 只实现一次处理单元插入/切分的来源关系人工复核，不声称通用继承。
+10. **内容加载。** Demo 仅供面试官查看；正文支持私有部署数据或本地导入，公开仓库入库策略留给最终交付。
 
 ## Risks / Trade-offs
 
-- [制作方案变化被伪装成剧本改版] → V2 必须实际改写项目内演示改编版的原文/舞台指示，并清楚标注不是 Shakespeare 原作新版本。
-- [四类被误解为完整标准] → UI 和文档称为 Demo 覆盖类型，不称完整分类树。
-- [草稿被误解为已下发] → 禁止送达/已读/撤回文案，只显示未下发与发布前复核。
-- [固定数据被误解为模型结果] → 明示确定性演示数据，不提供供应商模式切换。
-- [公版原作与数字文本/译本权利混淆] → 保存来源 URL、取得日期和片段边界，不复制站点包装或未核验中文译本。
-- [多栏密度影响阅读] → 以桌面主视口为验收，任务区保持可折叠；不增加统计看板或关系图。
+- [处理单元冒充原作结构] → UI/canonical 统一使用“处理单元”，原作来源只显示第四幕。
+- [粗粒度来源无法核验] → 每条建议必须有精确 quote/range。
+- [API 已有被误报为产品完成] → 验收观察官网端到端链，不以库函数或测试代替。
+- [文本片段直接实体化] → 实体只由人工采用/关联产生，来源通过关系保存。
+- [版本能力夸大] → 只验收一次插入/切分关系复核。
+- [fallback 冒充模型] → mode/reason 持续可见并使用本单元确定性建议。
 
 ## Migration / Rollback
 
-- 旧占位数据不是兼容性资产，后续实现直接替换为《暴风雨》确定性样本。
-- V1 与项目内演示改编版 V2 都是本地种子数据，无生产数据迁移。
-- 若 V2 影响视图阻碍主链，可隐藏影响入口回到 V1；不得因此删除 V1 来源或实体关系。
+- 旧默认内容不是兼容性资产；最终官网改为私有/本地加载第四幕。
+- 先让 orchestrator 保留完整 suggestions，再接 App、全文证据和 HITL。
+- 回滚 AI 状态面不得删除 run/batch、实体或任务草稿。
 
 ## Open Questions
 
-无阻塞项。真实 taxonomy、部门字段必填口径和任务派发系统均需在 Demo 验证后另立范围。
+- 实际采用 3 个还是 4 个处理单元及边界由导入数据实现确定。
+- 控件文案、位置和布局在 UI 阶段确认。
+- 公开仓库正文策略在最终交付阶段可单独调整。
 
 ## Acceptance Design
 
-- [AIR-01] Owner: 建议采用/关联状态；Observable: 来源锚点、人工校订与实体写入形成真链；Counterexample: 静态卡片或 AI 直接写实体；Evidence: 浏览器来源—建议—实体操作。
-- [AIR-02] Owner: 实体、关系与任务材料状态；Observable: 实体有 Metadata/跨场来源，草稿有部门与来源快照且明确未下发；Counterexample: 只有列表或出现虚假送达状态；Evidence: 浏览器实体—部门材料链。
-- [AIR-03] Owner: SceneEntityRelation 与 VersionImpact；Observable: V2 影响等待人工关系决策，V1 保留，草稿仅提示复核；Counterexample: 静默覆盖或声称撤回已发任务；Evidence: 浏览器一次关系复核。
-- [AIR-04] Owner: 默认样本与范围披露；Observable: 从样本 1 / ACT I, SCENE I 运行确定性 Demo，公版英文、项目自译与边界可见；Counterexample: 旧占位/任意编号或模拟冒充实时；Evidence: 初始态、无模型环境和文档检查。
+- [AIWF-01] Owner: AiRun；Observable: 顺序处理实际全部单元；Counterexample: 漏单元称全部；Evidence: 请求数与导入配置一致。
+- [AIWF-02] Owner: 单元状态/模式；Observable: 当前单元和最终模式可见；Counterexample: 原作场次误称或假阶段；Evidence: 浏览器状态与文案。
+- [AIWF-03] Owner: evidence 校验；Observable: 每条建议有精确 quote/range；Counterexample: 只有粗粒度来源；Evidence: API 正反例和映射测试。
+- [AIWF-04] Owner: fallback 适配；Observable: 本单元建议与原因进入审阅；Counterexample: 通用占位或冒充成功；Evidence: 失败矩阵和 UI 检查。
+- [AIWF-05] Owner: SuggestionBatch 人审；Observable: 编辑后采用/关联/忽略；Counterexample: AI 自动写实体；Evidence: 浏览器人审链。
+- [AIWF-06] Owner: 全文/evidence 导航；Observable: 第四幕全文常驻并精确高亮；Counterexample: 单元替换全文或无联动；Evidence: 锚点和滚动高亮。
+- [AIWF-07] Owner: Entity/TaskDraft；Observable: 稳定实体生成未下发草稿；Counterexample: 粗来源或虚假送达；Evidence: 关系与任务快照。
+- [AIWF-08] Owner: VersionImpact；Observable: 一次单元插入/切分等待人工复核；Counterexample: 静默覆盖或通用继承；Evidence: 旧新关系对照。
+- [AIWF-09] Owner: run/batch 历史；Observable: 重新分析只新增；Counterexample: 覆盖人工结果；Evidence: 两次 run 对照。
+- [AIWF-10] Owner: 内容/UI 诚实性；Observable: 标题、范围、使用边界正确且无死按钮；Counterexample: 冒充整部原作/原作场次；Evidence: 内容、仓库和控件盘点。

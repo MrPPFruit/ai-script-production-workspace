@@ -1,21 +1,24 @@
 ## ADDED Requirements
 
-<!-- comet-acceptance: AIR-03 -->
-### Requirement: 项目内演示改编版
-系统 SHALL 将 V1 标识为来源可核验的《暴风雨》英文公版片段，并 SHALL 将 V2 标识为项目内演示改编版。V2 MUST 包含真实文本或场次结构变化，而不是只把制作方案变化伪装成剧本改版。
+<!-- comet-acceptance: AIWF-08 -->
+### Requirement: 一次处理单元插入或切分影响
+系统 SHALL 演示一次处理单元插入或切分导致实体来源关系需要人工复核。系统 MUST NOT 把该案例描述为原作场次变化、通用自动 diff 或通用自动继承。
 
-#### Scenario: 拆分 ACT III, SCENE III
-- **WHEN** 用户切换到项目内演示改编版 V2
-- **THEN** 系统显示 V1 的 ACT III, SCENE III 与 V2 的 III-A/III-B 之间的文本、场次和实体关系差异
+#### Scenario: 处理单元边界发生变化
+- **WHEN** V2 插入或切分一个处理单元
+- **THEN** 系统显示受影响实体的旧新来源和精确 evidence，并等待人工决定
 
-<!-- comet-acceptance: AIR-03 -->
-### Requirement: 场次—实体关系显式复核
-系统 SHALL 显示 V2 影响的来源锚点、场次—实体关系和相关未下发草稿，并 SHALL 等待用户完成一次关系决策。系统 MUST NOT 静默覆盖 V1、自动重建实体或声称处理已下发任务。
+### Requirement: 版本影响不静默覆盖
+系统 MUST NOT 静默覆盖 V1、自动重建实体或改写旧任务快照。用户 SHALL 能选择重连 V2 来源或保留原关系。
 
-#### Scenario: 人工处理关系变化
-- **WHEN** V2 的文本/场次变化影响既有实体关系
-- **THEN** 系统显示变更前后来源，并允许用户更新场次关联或保留原关系
+#### Scenario: 人工处理来源关系
+- **WHEN** 用户审阅一个受影响实体
+- **THEN** 更新只作用于所选 V2 来源关系，V1 和旧草稿保持可回看
 
-#### Scenario: 相关草稿需要复核
-- **WHEN** 受影响实体存在未下发任务材料草稿
-- **THEN** 原草稿内容保持不变，并显示“来源已变化，发布前复核”
+<!-- comet-acceptance: AIWF-09 -->
+### Requirement: 重新分析采用追加批次
+重新分析当前或全部处理单元 SHALL 创建新的 run 和 SuggestionBatch，MUST NOT 自动修改旧建议决定、实体、来源关系、任务草稿或剧本文本。
+
+#### Scenario: 同一处理单元连续分析两次
+- **WHEN** 用户发起第二次分析
+- **THEN** 系统保留两个 run/batch 和旧人工决定，下游数据保持不变

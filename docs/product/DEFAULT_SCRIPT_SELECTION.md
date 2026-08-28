@@ -1,47 +1,45 @@
-# 默认剧本选择：《暴风雨》公版节选
+# 默认剧本选择：《雷雨》·面试 Demo 导入版本（第四幕）
 
 ## 已确认结论
 
-公开 Demo 的默认剧本正式采用 William Shakespeare 的 **The Tempest（《暴风雨》）**。只提取以下三个有界片段：
+面试 Demo 默认内容采用曹禺《雷雨》第四幕，产品显示名称固定为：
 
-1. **ACT I, SCENE I**：海上船只，暴风雨中的甲板调度。
-2. **ACT I, SCENE II**：Prospero 居所前，Ariel 汇报制造风暴的经过。
-3. **ACT III, SCENE III**：岛上宴席，Ariel 以鹰身女妖形象出现并使宴席消失。
+> 《雷雨》·面试 Demo 导入版本（第四幕）
 
-Demo 选取列表按上述样本顺序从 1 开始展示；ACT/SCENE 是来源标识，二者不能被旧视觉占位编号替换。V2 拆分后的列表仍从 1 连续编号，样本 3、4 都明确来源于 ACT III, SCENE III。
+“完整文本”只指本次导入的第四幕全部文本，不代表整部《雷雨》。原作按“幕”组织，产品不得人为编造原作场次编号。
 
-这三个片段足以覆盖重复角色、跨场复用的国王船只、岛屿与 Prospero 居所、魔法斗篷、宴席桌、剑、湿服装、雷电、风浪、喊声、音乐、Ariel 变形和宴席消失等制作元素。它们可自然形成“原文证据 → 制作建议 → 人工确认 → 项目实体 → 部门任务材料 → V2 影响审阅”的主链，不需要复制整部作品。
+## AI 处理范围
 
-## 固定来源
+第四幕按人物进退场和关键舞台指示预先配置为 3–4 个幕内处理单元，用于单次 API 限长、批处理进度和失败隔离。处理单元是系统执行边界，不是原作场次；实际采用 3 个还是 4 个及具体边界由导入数据实现确定。
 
-| 项目 | 固定值 |
-| --- | --- |
-| 作品 | *The Tempest*，William Shakespeare |
-| 主文本来源 | [MIT Shakespeare — The Tempest](https://shakespeare.mit.edu/tempest/) 及其 [Act I, Scene 1](https://shakespeare.mit.edu/tempest/tempest.1.1.html)、[Act I, Scene 2](https://shakespeare.mit.edu/tempest/tempest.1.2.html)、[Act III, Scene 3](https://shakespeare.mit.edu/tempest/tempest.3.3.html) |
-| 主来源许可陈述 | [MIT Shakespeare 首页](https://shakespeare.mit.edu/)明确说明其 HTML versions are placed in the public domain |
-| 辅助核对版本 | [Project Gutenberg eBook #23042](https://www.gutenberg.org/ebooks/23042)，1863 Cambridge Edition，页面标记 Public domain in the USA |
-| 提取日期 | 2026-08-28 |
-| 中文文本 | 本项目基于上述英文公版片段自行翻译，仅用于 Demo；未使用网络中文译本 |
+每条 AI 建议必须引用精确原文 quote/range。处理单元只提供执行上下文，不能替代细粒度 evidence。
 
-源文本与逐场截取边界见 `fixtures/SOURCE_AND_LICENSE.md`。公开仓库只保存工作流所需的最少片段，不复制 Project Gutenberg 的封面、站点说明或整部电子书。
+第四幕可覆盖周家主要人物、室内场景、服化道具、雷雨、枪声、灯光变化和触电等制片要素，足以演示：
 
-## Demo profile，而非固定制作分类
+> 第四幕全文 → DeepSeek → evidence → HITL → 稳定实体 → 未下发部门任务草稿 → 一次版本关系复核
 
-默认数据使用项目统一 taxonomy：`character`、`location`、`set`、`prop`、`costume`、`vehicle`、`vfx`、`sfx`、`sound`、`lighting` 等。当前 fixture 只是一个 **Demo profile**：它展示哪些类别在所选片段中有证据，不把“录音要求”或任何单一部门字段写成不可扩展的剧本结构。
+## 来源与使用边界
 
-明确事实与制作推断必须分开：例如“Thunder and lightning”是原文明确证据；需要多声道回放、LED 闪电、风机或实时合成，则是待人工审阅的生产推断，不能伪装成莎士比亚原文。
+- 本 Demo 仅供面试官查看，版权不作为选用《雷雨》的产品阻塞。
+- 项目记录作品、作者、导入版本、第四幕来源/取得方式和使用边界。
+- 选剧本与公开代码仓库是否包含正文是两个决策。
+- 当前实现方向是通过私有部署数据或本地导入加载正文；最终公开仓库正文策略由交付阶段单独确认。
 
-## V1 与 V2 的边界
+## V1 与版本案例
 
-- V1 是英中对照的公版原文节选，中文为本项目自行翻译。
-- V2 是**基于公版原作的演示性制作修订**，不是莎士比亚原文，也不是学术译本。它把 Act III, Scene 3 拆成 3A“宴席出现”和 3B“鹰身女妖揭示”，并把实物宴席的“机关消失”改为“实物桌 + 实时合成宴席影像”的制作方案。
-- V2 不改写 V1 已确认实体或任务。系统只生成待审的场次关联与制作方案影响，由用户决定保留、合并或新建。
+- V1 是第四幕本次导入版本及其 3–4 个处理单元配置。
+- 版本案例只演示一次处理单元插入或切分导致实体来源关系需要人工复核。
+- 旧实体和任务草稿不被静默覆盖；用户决定重连或保留来源。
+- 不宣称原作场次变化、通用自动 diff 或通用自动继承。
 
-## 文件角色
+## 明确不做
 
-- `fixtures/default-script-v1.md`：英文来源摘录与自行翻译中文对照。
-- `fixtures/default-script-v2.md`：明确标注的演示性制作修订。
-- `fixtures/default-script.txt`：可导入的 UTF-8 简体中文 V1 样本。
-- `fixtures/default-script.json`：实现可消费的稳定对象、证据、实体、任务材料与版本影响。
-- `fixtures/SOURCE_AND_LICENSE.md`：来源、许可、提取边界和翻译声明。
-- `fixtures/internal/echo-window-*`：旧原创内部结构校验样本，不再作为 default。
+- 自动处理单元拆分算法；
+- 镜头级拆分；
+- 文本片段直接实体化；
+- 通用版本继承；
+- 真实任务派发、更新或撤回。
+
+## 当前实现状态
+
+本文件只冻结产品内容选择。第四幕正文、处理单元边界、确定性 fallback、全文 evidence 映射和版本影响数据均尚未实现；不得仅凭本文件称 Demo 已完成。
