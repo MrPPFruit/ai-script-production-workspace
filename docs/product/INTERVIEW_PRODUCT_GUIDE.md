@@ -5,11 +5,11 @@
 - **在线工作台（正式入口）**：<https://script-demo.ppserver.xyz/>
 - **在线产品手册**：<https://script-demo.ppserver.xyz/product-guide>
 - **公开 GitHub 仓库**：<https://github.com/MrPPFruit/ai-script-production-workspace>
-- **离线产品手册**：交付压缩包根目录的 `产品手册.html`，双击即可阅读，不依赖网络。
+- **离线产品手册**：交付压缩包根目录同时提供 `产品手册.html` 与 `产品手册.md`；前者可直接双击阅读，后者便于查看和转发原始 Markdown。
 - **本地交互 Demo**：解压后双击 `启动本地网页.command`，再打开 <http://127.0.0.1:8080/>；本地静态版不包含服务端 DeepSeek Secret，真实 AI 调用请使用正式在线入口。
 
 > 面试 Demo：**《雷雨》·面试 Demo 导入版本（第四幕）**
-> 本手册是面试官入口，说明产品价值、可演示链路与真实完成度。详细产品合同见 [PRODUCT_SPEC.md](./PRODUCT_SPEC.md)，范围决策见 [SCOPE_DECISIONS.md](./SCOPE_DECISIONS.md)，逐秒演示口径见 [DEMO_SCRIPT.md](./DEMO_SCRIPT.md)。
+> 本手册同时承担产品说明与交付说明：面试官只需阅读这一份文档，即可了解产品价值、完整 Workflow、可演示功能、真实完成度、体验入口和交付内容。源码及内部拆分文档统一保留在 [GitHub 公开仓库](https://github.com/MrPPFruit/ai-script-production-workspace)，不在交付包内重复堆放。
 
 ## 1. 一句话定位
 
@@ -218,20 +218,18 @@ fallback 是确定性演示保障，只证明审阅链在上游不可用时仍�
 | GitHub | `https://github.com/MrPPFruit/ai-script-production-workspace` | 公开仓库；当前交付代码已推送 |
 | 包内本地 Demo | `http://127.0.0.1:8080/` | 解压交付包后双击 `启动本地网页.command`；静态交互版不包含服务端 AI Secret |
 
-## 12. 最终交付清单
+## 12. 交付清单
 
-- [x] 默认 fixture 分类修正已验收：人物关系使用 `cast`，默认数据不含 `other`
-- [x] 类型筛选与 `cast`/`other` 中文映射通过最终集成浏览器验收
-- [x] 实体按生产分类筛选并可编辑名称、分类与 Metadata；来源关系与标识锁定
-- [x] 任务按中文部门筛选，任务可编辑边界与来源/版本锁定状态可见
-- [x] 官网静态产品手册页可访问，且不把未完成项显示为已完成
-- [ ] 服务端配置 DeepSeek，完成 3/4 单元真实顺序浏览器链，不输出凭证
-- [x] fallback 失败矩阵通过，线上烟测明确返回 mode/reason/requestId
-- [x] 人审、实体、任务编辑和 V2 关系复核具备可演示入口
-- [x] 测试、typecheck、build、OpenSpec strict 和 diff check 通过
-- [x] 部署 URL、GitHub URL 与本地入口回填
-- [ ] 公开仓库正文策略完成检查；私有正文和密钥未进入公开产物
-- [ ] 录制或截图留存请求顺序、证据高亮、人审、任务草稿与版本影响
+最终压缩包只保留面试官实际需要的四项内容，不附带验收截图、源码归档、内部过程文档或重复说明文件：
+
+| 交付项 | 用途 | 打开方式 |
+| --- | --- | --- |
+| `产品手册.html` | 完整产品说明与交付说明，适合直接阅读 | 双击打开，不依赖网络 |
+| `产品手册.md` | 与网页手册内容一致的 Markdown 原文，便于查看和转发 | 使用任意 Markdown 或文本编辑器打开 |
+| `启动本地网页.command` | 启动本地静态服务器 | macOS 双击运行；若系统拦截，可右键选择“打开” |
+| `本地网页/` | 完整静态交互 Demo，包括工作台与同版产品手册 | 启动脚本后访问 `http://127.0.0.1:8080/` |
+
+源码和更细的工程文档统一通过 [GitHub 公开仓库](https://github.com/MrPPFruit/ai-script-production-workspace) 查看。包内本地 Demo 用于离线展示交互，真实 DeepSeek 调用使用正式在线工作台。
 
 ## 13. 后续路线图
 
