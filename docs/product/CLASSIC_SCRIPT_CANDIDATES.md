@@ -1,8 +1,9 @@
-# 公开 Demo 的经典剧本候选研究（已决策）
+# 公开 Demo 的经典剧本候选研究（历史记录，已 superseded）
 
-> 决策状态：**已选择《暴风雨》作为默认经典剧本。** 默认节选、来源与版本边界见 `DEFAULT_SCRIPT_SELECTION.md`；其余候选仅保留作决策记录。
+> 历史状态：本轮候选研究曾推荐《暴风雨》，该结论现已 **superseded**。当前最终选择是 **《雷雨》·面试 Demo 导入版本（第四幕）**，以 `DEFAULT_SCRIPT_SELECTION.md`、`PRODUCT_SPEC.md` 和当前 OpenSpec 为准。
+> 本文只保留当时的候选、来源和比较依据，不再是默认剧本或交付范围的当前真相源；下文的“首选”“默认”等表述均指历史评估语境。
 
-## 结论先行
+## 历史评估结论
 
 不建议直接把“经典电影”当作默认剧本来源。电影进入公版、图书馆能看见扫描件、或 GitHub 上有人上传，均**不能**单独证明某一份 screenplay／continuity script 可以被复制到公开 GitHub 和网页 Demo。美国国会图书馆的电影版权描述馆藏确实包含 dialogue／continuity scripts，但也明确有馆藏会限制复制、引用或出版；因此本轮不选用这类馆藏材料。[馆藏范围](https://www.loc.gov/collections/motion-picture-copyright-descriptions/about-this-collection/)；[受限脚本馆藏示例](https://findingaids.loc.gov/repositories/5/resources/369)
 
@@ -19,14 +20,14 @@
 
 | 排名 | 候选与直接原始文本来源 | 是否为剧本 | 文本/许可核验 | 2–4 场的拆解覆盖 | 版本影响演示 | 结论 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | **《暴风雨》（The Tempest）— William Shakespeare**：[MIT HTML](https://shakespeare.mit.edu/tempest/)；[Project Gutenberg 纯文本/下载页](https://www.gutenberg.org/ebooks/1540) | 是，舞台剧本；MIT 页面含 act/scene、人物与舞台指示，不是影迷转写。 | MIT 明示其 HTML 版本为 public domain；PG 将此书标为美国公版且提供 Plain Text。全球/中文部署仍为条件可用。 | 船难、岛屿、魔法精灵、宴席幻象：重复角色、场景、服化、风暴声光、魔法视觉效果齐全。 | 可把“宴席/幻象保留”改为“消失或以投影替代”，生成 V2 的 VFX、音效、道具任务影响。 | **首选，条件推荐。** 覆盖最全面，也最接近虚拟制片语言。 |
+| 1 | **《暴风雨》（The Tempest）— William Shakespeare**：[MIT HTML](https://shakespeare.mit.edu/tempest/)；[Project Gutenberg 纯文本/下载页](https://www.gutenberg.org/ebooks/1540) | 是，舞台剧本；MIT 页面含 act/scene、人物与舞台指示，不是影迷转写。 | MIT 明示其 HTML 版本为 public domain；PG 将此书标为美国公版且提供 Plain Text。全球/中文部署仍为条件可用。 | 船难、岛屿、魔法精灵、宴席幻象：重复角色、场景、服化、风暴声光、魔法视觉效果齐全。 | 可把“宴席/幻象保留”改为“消失或以投影替代”，生成 V2 的 VFX、音效、道具任务影响。 | **历史首选，已 superseded。** 当时覆盖最全面，也最接近虚拟制片语言。 |
 | 2 | **《仲夏夜之梦》（A Midsummer Night’s Dream）— William Shakespeare**：[MIT HTML](https://shakespeare.mit.edu/midsummer/)；[Project Gutenberg 文本版本说明](https://www.gutenberg.org/help/shakespeare.html) | 是，舞台剧本；MIT 的完整分幕分场文本与舞台指示可核验。 | MIT HTML 明示 public domain；原作亦是长期公版。不要误用 Project Gutenberg 的有版权音频表演版本。 | 林地、精灵、花汁、变形、婚礼/戏中戏，可覆盖重复角色、服化、手持道具、魔法 SFX/VFX、音乐。 | 可把花汁道具改成可发光的版本，或把精灵入场从现场演员改为投影，展示实体与部门任务影响。 | **次选，条件推荐。** 视觉丰富，但人物与关系更杂，首次演示要严格截短。 |
 | 3 | **《麦克白》（Macbeth）— William Shakespeare**：[MIT HTML](https://shakespeare.mit.edu/macbeth/)；[Project Gutenberg 纯文本/下载页](https://www.gutenberg.org/ebooks/1533) | 是，舞台剧本；两来源均为完整的 act/scene 剧本文本，不是影视台词转写。 | MIT HTML 明示 public domain；PG 标为美国公版并提供 Plain Text。全球/中文部署仍为条件可用。 | 女巫、雷电、书信、匕首幻象、宴会鬼影：重复角色/道具、城堡场景、盔甲服化、雷声灯光、幻象效果。 | 可将“鬼影”从演员/化妆方案改为投影方案，或改变匕首处理，形成可审阅的 V2 VFX 与道具影响。 | **可用但不优先。** 证据非常强，暴力、血腥和悲剧调性会分散面试 Demo 对工作流的注意力。 |
 | 4 | **《不可儿戏》（The Importance of Being Earnest）— Oscar Wilde**：[Project Gutenberg HTML/UTF-8 文本页](https://www.gutenberg.org/ebooks/844) | 是，舞台剧本；该页标注为 comedy play，并提供 UTF-8 Plain Text。 | Project Gutenberg 标为美国公版；可获得结构化 HTML 与纯文本。未找到同等强度的“网页 HTML 明示 public domain”第二来源，故全球公开部署为条件可用、证据较 Shakespeare 弱。 | 公寓、花园、客厅、手提包、茶具、卡片、燕尾服/礼服；适合角色、道具、置景、服化和连续性任务。 | 可把手提包来源或花园/客厅段落顺序改动，产生道具与置景影响。 | **备用，谨慎推荐。** 文本易读、道具连续性好，但几乎没有自然的声音/灯光/VFX 需求。 |
 
 ## 每个候选最合适的短段落
 
-### 1. 《暴风雨》：最适合默认 Demo
+### 1. 《暴风雨》：历史评估中的首选（已 superseded）
 
 建议选择以下三场，不复制整部文本：
 
@@ -69,7 +70,9 @@
 | 近现代名片、影视剧或中文商业剧本 | 文本/译本权利链通常无法在本任务内可靠核验；电影本体公版也不自动使 screenplay、译本或修订稿公版。 |
 | 仅有台词、无舞台指示的影迷转写 | 没有可核验的场次和动作证据，无法可靠产出场景、道具、声音或部门任务。 |
 
-## 决策后的实施边界
+## 当时拟定的实施边界（已 superseded，不执行）
+
+以下内容只记录原候选方案，不代表当前《雷雨》第四幕方案或待执行任务：
 
 1. 采用 MIT Shakespeare 的 public-domain HTML 为主来源，Project Gutenberg 1863 Cambridge Edition eBook #23042 只作版本核对。
 2. 中文由本项目依据英文公版片段自行翻译；不使用、改写或拼接网络中文译本。
