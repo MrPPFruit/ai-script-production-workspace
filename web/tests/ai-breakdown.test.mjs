@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 import handler from "../api/ai/breakdown.js";
 
@@ -9,6 +9,7 @@ const invoke = async (req) => {
   await handler(req, response);
   return response;
 };
+const filesUnder = async (directory) => (await Promise.all((await readdir(directory, { withFileTypes: true })).map((entry) => entry.isDirectory() ? filesUnder(new URL(`${entry.name}/`, directory)) : [new URL(entry.name, directory)]))).flat();
 
 test("无密钥时返回确定性 fallback，且响应不含密钥", async () => {
   const before = process.env.DEEPSEEK_API_KEY;
@@ -18,6 +19,7 @@ test("无密钥时返回确定性 fallback，且响应不含密钥", async () =>
   assert.equal(response.statusCode, 200);
   assert.equal(response.body.mode, "fallback");
   assert.equal(response.body.reason, "MISSING_API_KEY");
+  assert.deepEqual(response.body.suggestions[0].evidence[0].range, { start: 0, end: "小王拿起一盏红灯。".length });
   assert.equal(JSON.stringify(response.body).includes("DEEPSEEK_API_KEY"), false);
 });
 
@@ -46,9 +48,11 @@ test("上游失败时不回显密钥，且构建可见文件没有密钥变量",
   assert.equal(response.body.mode, "fallback");
   assert.equal(JSON.stringify(response.body).includes("server-only-test-key"), false);
   assert.equal(await readFile(new URL("../.env.example", import.meta.url), "utf8"), "DEEPSEEK_API_KEY=\n");
-  const client = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
-  assert.equal(client.includes("DEEPSEEK_API_KEY"), false);
-  assert.equal(client.includes("server-only-test-key"), false);
+  for (const file of await filesUnder(new URL("../dist/client/", import.meta.url))) {
+    const client = await readFile(file, "utf8");
+    assert.equal(client.includes("DEEPSEEK_API_KEY"), false);
+    assert.equal(client.includes("server-only-test-key"), false);
+  }
   const source = await readFile(new URL("../api/ai/breakdown.js", import.meta.url), "utf8");
   assert.equal(source.includes("process.env.DEEPSEEK_API_KEY"), true);
 });

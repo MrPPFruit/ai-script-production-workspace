@@ -1,5 +1,14 @@
+import { handleBreakdown } from "../api/ai/breakdown-core.js";
+
+const breakdownPath = "/api/ai/breakdown";
+const json = (result) => new Response(JSON.stringify(result.body), { status: result.status, headers: { "content-type": "application/json; charset=utf-8" } });
+
 export default {
   async fetch(request, env) {
+    if (request.method === "POST" && new URL(request.url).pathname === breakdownPath) {
+      const result = await handleBreakdown({ method: request.method, body: await request.text(), apiKey: env.DEEPSEEK_API_KEY, fetchImpl: fetch, requestId: () => crypto.randomUUID() });
+      return json(result);
+    }
     const response = await env.ASSETS.fetch(request);
     const acceptsHtml = request.headers.get("accept")?.includes("text/html");
 

@@ -13,7 +13,7 @@ export interface BreakdownInput {
 export interface BreakdownEvidence {
   quote: string;
   kind: EvidenceKind;
-  range?: { start: number; end: number };
+  range: { start: number; end: number };
   rationale?: string;
 }
 
@@ -55,7 +55,7 @@ const kinds = new Set<EvidenceKind>(["explicit", "inferred"]);
 const confidence = new Set<Confidence>(["high", "medium", "low"]);
 const text = (value: unknown): value is string => typeof value === "string" && value.trim().length > 0;
 
-function validSuggestion(value: unknown): value is BreakdownSuggestion {
+function validSuggestion(value: unknown, sceneText: string): value is BreakdownSuggestion {
   if (!value || typeof value !== "object") return false;
   const suggestion = value as Partial<BreakdownSuggestion>;
   if (!taxonomies.has(suggestion.taxonomy as ProductionTaxonomy) || !text(suggestion.label) || !kinds.has(suggestion.evidenceKind as EvidenceKind) || !confidence.has(suggestion.confidence as Confidence) || !Array.isArray(suggestion.evidence) || !suggestion.evidence.length) return false;
@@ -66,17 +66,18 @@ function validSuggestion(value: unknown): value is BreakdownSuggestion {
     if (!item || typeof item !== "object") return false;
     const evidence = item as Partial<BreakdownEvidence>;
     if (!text(evidence.quote) || evidence.kind !== suggestion.evidenceKind) return false;
-    if (evidence.range && (!Number.isInteger(evidence.range.start) || !Number.isInteger(evidence.range.end) || evidence.range.start < 0 || evidence.range.end < evidence.range.start)) return false;
+    const start = sceneText.indexOf(evidence.quote);
+    if (!evidence.range || start < 0 || !Number.isInteger(evidence.range.start) || !Number.isInteger(evidence.range.end) || evidence.range.start !== start || evidence.range.end !== start + evidence.quote.length) return false;
     return suggestion.evidenceKind !== "inferred" || text(evidence.rationale);
   });
 }
 
-function valid(value: unknown): value is BreakdownResult {
+function valid(value: unknown, sceneText: string): value is BreakdownResult {
   if (!value || typeof value !== "object") return false;
   const response = value as Partial<BreakdownResult>;
   return (response.mode === "deepseek" || response.mode === "fallback")
     && typeof response.requestId === "string" && response.requestId.length > 0
-    && Array.isArray(response.suggestions) && response.suggestions.every(validSuggestion)
+    && Array.isArray(response.suggestions) && response.suggestions.every((suggestion) => validSuggestion(suggestion, sceneText))
     && (response.mode !== "fallback" || reasons.has(response.reason as FallbackReason));
 }
 
@@ -94,7 +95,7 @@ export async function requestBreakdown(input: BreakdownInput, fetchImpl: FetchLi
   if (!response.ok) throw new AiClientError("HTTP_ERROR", response.status);
   let payload: unknown;
   try { payload = await response.json(); } catch { throw new AiClientError("INVALID_RESPONSE"); }
-  if (!valid(payload)) throw new AiClientError("INVALID_RESPONSE");
+  if (!valid(payload, input.scene.text)) throw new AiClientError("INVALID_RESPONSE");
   return payload;
 }
 
@@ -115,6 +116,7 @@ export interface SceneWorkflowRecord {
   reason: FallbackReason | null;
   requestId: string | null;
   suggestionCount: number;
+  suggestions: BreakdownSuggestion[];
   error?: AiClientError["code"];
 }
 
@@ -147,10 +149,10 @@ export async function processVersionScenes(
       const result = await requestBreakdown({ version, scene, existingEntities }, fetchImpl);
       const state = result.mode === "fallback" ? "fallback_ready" : "review_ready";
       progress(scene.id, state);
-      records.push({ versionId: version.id, sceneId: scene.id, state, mode: result.mode, reason: result.reason ?? null, requestId: result.requestId, suggestionCount: result.suggestions.length });
+      records.push({ versionId: version.id, sceneId: scene.id, state, mode: result.mode, reason: result.reason ?? null, requestId: result.requestId, suggestionCount: result.suggestions.length, suggestions: result.suggestions });
     } catch (error) {
       progress(scene.id, "failed");
-      records.push({ versionId: version.id, sceneId: scene.id, state: "failed", mode: null, reason: null, requestId: null, suggestionCount: 0, error: error instanceof AiClientError ? error.code : "NETWORK_ERROR" });
+      records.push({ versionId: version.id, sceneId: scene.id, state: "failed", mode: null, reason: null, requestId: null, suggestionCount: 0, suggestions: [], error: error instanceof AiClientError ? error.code : "NETWORK_ERROR" });
     }
   }
   if (cancelled) return { summary: "cancelled", records };

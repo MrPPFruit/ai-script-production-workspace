@@ -3,6 +3,25 @@ import { access } from "node:fs/promises";
 import test from "node:test";
 import worker from "../worker/index.js";
 
+test("serves the breakdown API from Worker env without a key", async () => {
+  const sceneText = "小王拿起一盏红灯。";
+  let assetCalls = 0;
+  const response = await worker.fetch(new Request("https://example.test/api/ai/breakdown", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ version: { id: "v1", label: "V1" }, scene: { id: "s1", heading: "内景", text: sceneText }, existingEntities: [] }),
+  }), {
+    DEEPSEEK_API_KEY: undefined,
+    ASSETS: { fetch: async () => { assetCalls += 1; return new Response("asset"); } },
+  });
+  const body = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(body.mode, "fallback");
+  assert.equal(body.reason, "MISSING_API_KEY");
+  assert.deepEqual(body.suggestions[0].evidence[0].range, { start: 0, end: sceneText.length });
+  assert.equal(assetCalls, 0);
+});
+
 test("serves existing static assets without a fallback", async () => {
   const calls = [];
   const response = await worker.fetch(new Request("https://example.test/assets/app.js"), {
